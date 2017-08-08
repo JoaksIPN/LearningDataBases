@@ -1,0 +1,6 @@
+\select@language {spanish}
+\contentsline {part}{I\hspace {1em}Parte Abstracta}{2}{part.1}
+\contentsline {chapter}{\numberline {1}Definici\IeC {\'o}nes}{3}{chapter.1}
+\contentsline {section}{\numberline {1.1}Repositorio de Datos}{4}{section.1.1}
+\contentsline {section}{\numberline {1.2}Base de Datos}{5}{section.1.2}
+\contentsline {subsection}{\numberline {1.2.1}Elementos de un Sistema de Base de Datos}{6}{subsection.1.2.1}
