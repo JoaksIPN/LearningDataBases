@@ -1,7 +1,6 @@
 % ****************************************************************************************
-% ************************      ANALISIS VECTORIAL            ****************************
+% *********************        SISTEMAS OPERATIVOS            ****************************
 % ****************************************************************************************
-
 
 % =======================================================
 % =======         HEADER FOR DOCUMENT        ============
@@ -276,7 +275,7 @@
 
                 \end{itemize}
 
-         % ==============================================
+        % ===============================================
         % ========           METADATOS          =========
         % ===============================================
         \clearpage
@@ -288,6 +287,123 @@
                 \item Nombre y tipo de las tablas
                 \item Campos, restricciones y características de cada uno de ellos
             \end{itemize}
+
+
+        % ===============================================
+        % ====     USUARIOS DE UNA BASE DE DATOS     ====
+        % ===============================================
+        \clearpage
+        \section{Usuarios de una Base de Datos}
+
+            \begin{itemize}
+                \item
+                    \textbf{Administrador de la Base de Datos}
+
+                    Encargado de: 
+
+                        \begin{itemize}
+                            \item Monitorear el Performance
+                            \item Herramientas Administrativas
+                                \begin{itemize}
+                                    \item Creacion de cuentas de usuarios
+                                    \item Objetos accedidos.
+                                    \item Matriz de autorizacion.
+                                \end{itemize}
+                            \item Definir tiempos de respaldo
+                            \item Reorganización físico
+                            \item Llevar a cabo las tecnicas de recuperación
+                        \end{itemize}
+
+                \item
+                    \textbf{Diseñadores de la Base de Datos}
+
+                    \begin{itemize}
+                        \item Encargado de grabar los propios Módelos de Datos:
+                        
+                        \begin{itemize}
+                            \item Conceptuales: E/S
+                            \item Lógicos: Relacionados
+                            \item Físicos: Índices o Estructuras de Datos
+                        \end{itemize}
+
+                        \item Esquema de la Base de Datos
+                        
+                    \end{itemize}
+
+
+                \item
+                    \textbf{Programadores de Aplicaciones}
+
+                    \begin{itemize}
+                        \item Interfaces de los usuarios finales
+                        \begin{itemize}
+                            \item Facilitar el acceso a ciertos "objetos" de la BD
+                        \end{itemize}
+
+                        \item Interfaces para la gestión de la aplicaciones 
+                        \begin{itemize}
+                            \item Operaciones de escritura sobre altas ó bajas 
+                            \item IDE desarrollo (Java, .NET)
+                            \item Lenguaje Scripts
+                            \item Conectividad servidores de datos (API s) 
+                        \end{itemize}
+        
+                    \end{itemize}
+
+
+            \end{itemize}
+
+            \clearpage
+            \subsection{Usuarios Finales}
+            \begin{itemize}
+                    \item
+                        \textbf{Casuales}
+
+                        \begin{itemize}
+                            \item Data Minning
+                            \item Big Data
+                        \end{itemize}
+
+                    \item 
+                        \textbf{Principiantes - Paramétricos}
+                        :Puntos de venta.
+
+                    \item 
+                        \textbf{Sofisticados}
+                        \begin{itemize}
+                            \item Experiencia en aplicaciones 
+                            \item Programadores de aplicación
+                            \item DBA 
+                            \item Investigadores
+                         \end{itemize}
+                        
+                    \item 
+                        \textbf{Independientes (Stand Alone)} 
+                            \begin{itemize}
+                                \item Sistemas Escolares
+                                \item Sistemas de prueba
+                                \item Sin conectividad a otros nodos
+                            \end{itemize}
+
+            \end{itemize}
+
+
+        % ===============================================
+        % ====    VENTAJAS DE UNA BASE DE DATOS      ====
+        % ===============================================
+        \clearpage
+        \section{Propositos de un Sistema de Base de Datos}
+
+        A diferencias de un Sistema de Archivos, un Sistema de BD
+        busca:
+        \begin{itemize}
+            \item Evitar o miniza la redundancia
+            \item Evitar inconsistencias en los datos
+            \item Eliminar inconsistencias en los datos
+            \item Comunicacion con distintos repositorios de datos
+            \item Control de concurrencia
+        \end{itemize}
+
 
 
 
