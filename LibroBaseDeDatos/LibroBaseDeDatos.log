@@ -1,9 +1,9 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  9 AUG 2017 23:13
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  22 AUG 2017 19:32
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**/Users/mac/Downloads/IntroToDataBases/LibroBaseDeDatos/LibroBaseDeDatos.tex
-(/Users/mac/Downloads/IntroToDataBases/LibroBaseDeDatos/LibroBaseDeDatos.tex
+**LibroBaseDeDatos.tex
+(./LibroBaseDeDatos.tex
 LaTeX2e <2016/03/31>
 Babel <3.9r> and hyphenation patterns for 83 language(s) loaded.
 (/usr/local/texlive/2016/texmf-dist/tex/latex/base/report.cls
@@ -1277,7 +1277,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.212 \clearpage
+l.213 \clearpage
                  [1
 
 ] [2
@@ -1289,91 +1289,116 @@ Cap\'{\i }tulo 1.
 
 
 ]
-LaTeX Info: Redefining \. on input line 242.
-LaTeX Info: Redefining \% on input line 242.
-LaTeX Info: Redefining \. on input line 242.
-LaTeX Info: Redefining \% on input line 242.
+LaTeX Info: Redefining \. on input line 284.
+LaTeX Info: Redefining \% on input line 284.
+LaTeX Info: Redefining \. on input line 284.
+LaTeX Info: Redefining \% on input line 284.
  [4
 
 ]
-LaTeX Info: Redefining \. on input line 251.
-LaTeX Info: Redefining \% on input line 251.
-LaTeX Info: Redefining \. on input line 251.
-LaTeX Info: Redefining \% on input line 251.
+LaTeX Info: Redefining \. on input line 320.
+LaTeX Info: Redefining \% on input line 320.
+LaTeX Info: Redefining \. on input line 320.
+LaTeX Info: Redefining \% on input line 320.
  [5
 
-] <Graphics/DiagramaPartes.png, id=95, 963.6pt x 722.7pt>
+] <Graphics/DiagramaPartes.png, id=115, 963.6pt x 722.7pt>
 File: Graphics/DiagramaPartes.png Graphic file (type png)
 
 <use Graphics/DiagramaPartes.png>
-Package pdftex.def Info: Graphics/DiagramaPartes.png used on input line 254.
+Package pdftex.def Info: Graphics/DiagramaPartes.png used on input line 323.
 (pdftex.def)             Requested size: 374.72302pt x 281.03583pt.
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 270.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 339.
 
 
 (/usr/local/texlive/2016/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 270.
-LaTeX Info: Redefining \. on input line 281.
-LaTeX Info: Redefining \% on input line 281.
-LaTeX Info: Redefining \. on input line 281.
-LaTeX Info: Redefining \% on input line 281.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 339.
+LaTeX Info: Redefining \. on input line 353.
+LaTeX Info: Redefining \% on input line 353.
+LaTeX Info: Redefining \. on input line 353.
+LaTeX Info: Redefining \% on input line 353.
  [6
 
  <./Graphics/DiagramaPartes.png>]
-LaTeX Info: Redefining \. on input line 295.
-LaTeX Info: Redefining \% on input line 295.
-LaTeX Info: Redefining \. on input line 295.
-LaTeX Info: Redefining \% on input line 295.
+LaTeX Info: Redefining \. on input line 397.
+LaTeX Info: Redefining \% on input line 397.
+LaTeX Info: Redefining \. on input line 397.
+LaTeX Info: Redefining \% on input line 397.
  [7
 
 ]
-LaTeX Info: Redefining \. on input line 356.
-LaTeX Info: Redefining \% on input line 356.
-LaTeX Info: Redefining \. on input line 356.
-LaTeX Info: Redefining \% on input line 356.
+LaTeX Info: Redefining \. on input line 461.
+LaTeX Info: Redefining \% on input line 461.
+LaTeX Info: Redefining \. on input line 461.
+LaTeX Info: Redefining \% on input line 461.
  [8
 
 ]
-LaTeX Info: Redefining \. on input line 394.
-LaTeX Info: Redefining \% on input line 394.
-LaTeX Info: Redefining \. on input line 394.
-LaTeX Info: Redefining \% on input line 394.
+LaTeX Info: Redefining \. on input line 503.
+LaTeX Info: Redefining \% on input line 503.
+LaTeX Info: Redefining \. on input line 503.
+LaTeX Info: Redefining \% on input line 503.
  [9
+
+]
+LaTeX Info: Redefining \. on input line 542.
+LaTeX Info: Redefining \% on input line 542.
+LaTeX Info: Redefining \. on input line 542.
+LaTeX Info: Redefining \% on input line 542.
+ [10
+
+]
+LaTeX Info: Redefining \. on input line 576.
+LaTeX Info: Redefining \% on input line 576.
+LaTeX Info: Redefining \. on input line 576.
+LaTeX Info: Redefining \% on input line 576.
+ [11
+
+]
+LaTeX Info: Redefining \. on input line 637.
+LaTeX Info: Redefining \% on input line 637.
+LaTeX Info: Redefining \. on input line 637.
+LaTeX Info: Redefining \% on input line 637.
+ [12
+
+]
+Cap\'{\i }tulo 2.
+[13
 
 ]
 \tf@thm=\write5
 \openout5 = `LibroBaseDeDatos.thm'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 410.
-LaTeX Info: Redefining \. on input line 410.
-LaTeX Info: Redefining \% on input line 410.
-LaTeX Info: Redefining \. on input line 410.
-LaTeX Info: Redefining \% on input line 410.
- [10
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 656.
+LaTeX Info: Redefining \. on input line 656.
+LaTeX Info: Redefining \% on input line 656.
+LaTeX Info: Redefining \. on input line 656.
+LaTeX Info: Redefining \% on input line 656.
+ [14
 
 ]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 410.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 656.
  (./LibroBaseDeDatos.aux
 LaTeX Info: Redefining \. on input line 23.
 LaTeX Info: Redefining \% on input line 23.
 )
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 410.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 410.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 656.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 656.
 Package rerunfilecheck Info: File `LibroBaseDeDatos.out' has not changed.
-(rerunfilecheck)             Checksum: F4CA8D0241B3CE65DA8FCBA45343CBAE;610.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 410.
+(rerunfilecheck)             Checksum: E7C80DD4AB805084704B11EE66950BE1;856.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 656.
  ) 
 Here is how much of TeX's memory you used:
- 20150 strings out of 493014
- 343184 string characters out of 6133351
- 431332 words of memory out of 5000000
- 23401 multiletter control sequences out of 15000+600000
+ 20161 strings out of 493014
+ 343131 string characters out of 6133351
+ 432332 words of memory out of 5000000
+ 23405 multiletter control sequences out of 15000+600000
  22020 words of font info for 53 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 61i,12n,52p,10494b,476s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 61i,12n,52p,10439b,579s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2016/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}
 </usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><
 /usr/local/texlive/2016/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></u
@@ -1390,10 +1415,10 @@ ve/2016/texmf-dist/fonts/type1/public/cm-super/sfrm0800.pfb></usr/local/texlive
 6/texmf-dist/fonts/type1/public/cm-super/sfrm2074.pfb></usr/local/texlive/2016/
 texmf-dist/fonts/type1/public/cm-super/sfxc1440.pfb></usr/local/texlive/2016/te
 xmf-dist/fonts/type1/public/cm-super/sfxc1728.pfb>
-Output written on LibroBaseDeDatos.pdf (11 pages, 222078 bytes).
+Output written on LibroBaseDeDatos.pdf (15 pages, 244659 bytes).
 PDF statistics:
- 198 PDF objects out of 1000 (max. 8388607)
- 166 compressed objects within 2 object streams
- 21 named destinations out of 1000 (max. 500000)
- 78 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 249 PDF objects out of 1000 (max. 8388607)
+ 212 compressed objects within 3 object streams
+ 29 named destinations out of 1000 (max. 500000)
+ 110 words of extra memory for PDF output out of 10000 (max. 10000000)
 

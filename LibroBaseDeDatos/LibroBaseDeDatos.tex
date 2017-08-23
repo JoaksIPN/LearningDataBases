@@ -1,5 +1,5 @@
 % ****************************************************************************************
-% *********************        SISTEMAS OPERATIVOS            ****************************
+% *********************       BASES DE DATOS                  ****************************
 % ****************************************************************************************
 
 % =======================================================
@@ -216,7 +216,7 @@
 
 
 % //////////////////////////////////////////////////////////////////////////////////////////////////////////
-% ///////////////////////////////////         SISTEMAS DE COORDENADAS      /////////////////////////////////
+% ///////////////////////////////////         PARTE ABSTRACTA              /////////////////////////////////
 % //////////////////////////////////////////////////////////////////////////////////////////////////////////
 \part{Parte Abstracta}
 \clearpage
@@ -237,57 +237,158 @@
             que sea váliosa.
 
 
+
+
         % ==============================================
         % ========        BASE DE DATOS        =========
         % ==============================================
-        \clearpage
         \section{Base de Datos}
 
-            Son un conjunto de datos, definido por un modelo de datos, esto no lo tiene necesariamente 
-            un repositorio de datos.
+            Son un conjunto de datos interrelacionado definido por un modelo de datos, esto no lo
+            tiene necesariamente un repositorio de datos. Así como progrmas que nos permitan acceder
+            y manipular esa información.
 
-            % ==============================================
-            % ===    ELEMENTOS DE UNA BASE DE DATOS   ======
-            % ==============================================
-            \clearpage
-            \subsection{Elementos de un Sistema de Base de Datos}
 
-                \includegraphics[width=0.85\textwidth]{DiagramaPartes.png}
 
-                \begin{itemize}
-                    \item
-                        \textbf{Aplicaciones}: Son las aplicaciones que usan la Base de Datos, generalmente creado
-                        en lenguajes de Alto Nivel.
 
-                    \item
-                        \textbf{Conector:}Son las Apis, o las funciones que permiten a la aplicación interactuar
-                        con nuestra base de datos.
+        % ==============================================
+        % =======    RAZONES O PROPOSITOS       ========
+        % ==============================================
+        \section{Proposito para una Base de Datos}
 
-                    \item
-                        \textbf{Servidor de Datos:}Son el software especialízado qu nos permite manipular
-                        inteligentemente nuestro datos:
-
-                        \begin{itemize}
-                            \item Creación de Repositorios
-                            \item Creación de Cuentas de Usuarios
-                            \item Se encarga de crear archivos lógicos, físicos y objetos de la BD.
-                            \item Se encarga de administrar las transacciones, bloqueos , etc.
-                        \end{itemize}
-
-                \end{itemize}
-
-        % ===============================================
-        % ========           METADATOS          =========
-        % ===============================================
-        \clearpage
-        \section{Metadatos}
-
-            Son los archivos que se encargar de definir los esquemas del funcionamiento de la Base de Datos
-            sobretodo:
+            Todo muy bien, pero ¿porque debería importarme un comino?¿Porqué preferir una base de datos
+            sobre simplemente guardar los datos de manera \Quote{común}?
             \begin{itemize}
-                \item Nombre y tipo de las tablas
-                \item Campos, restricciones y características de cada uno de ellos
+                \item
+                    \textbf{Redundancia de datos e inconsistencia}:
+                        Ya que tu no vas a programar un sistema entero habra muchas maneras
+                        en que los demás programadores crearán aplicaciones y sobretodo en como
+                        van a guardar los datos.
+
+                        Peor aún, ¿Qué pasa cuando tengamos un motón de archivos con casi la misma información?
+                        es decir cuando tengamos un montón de archivos con tu mismo número de telefono,
+                        con tu misma información de contacto. 
+
+                \item
+                    \textbf{Problemas para acceder a la información que queriamos en primer lugar}:
+                        Supongamos que queremos acceder a los datos, digamos que tenemos un montón
+                        de registros de sobre alumnos.
+
+                        ¿Como hariamos para tener todos los alumos que hayan reprobado?
+                        No hay forma fácil de hacerlo, incluso la forma mas \Quote{correcta} sería
+                        desarrollar un pequeño programa que se encargue de hacer lo que queremos.
+
+                        Y esto podría servir muy bien.... Hasta que necesitemos algo más.
+                        Entonces tenemos que estar haciendo programas y programas ¡Que cansado!
+
+                \clearpage
+                \item
+                    \textbf{Aislamiento de la Información}:
+                        Ya que puede estar repartida por todos lados, no se exactamente por donde tengo
+                        que empezar a buscar. Y esto se vuelve un verdadero desastre cuando intentamos
+                        modificar la información guardada.
+
+
+                \item
+                    \textbf{Problemas con Atomicidad}:
+                        Si ocurriera un problema en el sistema al momento de estar modificando la información
+                        me gustaria que al volver a arrancar todo, este debería regresar a un punto de
+                        respaldo.
+
+                        Como si el sistema fallara justo al hacer una transacción bancaria, me interesa que 
+                        se haya realizado o no, pero que no le haya quitando dinero a una cuenta pero no se la
+                        haya dado al otro cliente. 
+
             \end{itemize}
+
+
+            Podemos resumir esto con que a diferencia de un sistema de archivos, una base de datos                busca:
+            \begin{itemize}
+                \item Evitar o miniza la redundancia
+                \item Evitar inconsistencias en los datos
+                \item Eliminar inconsistencias en los datos
+                \item Comunicacion con distintos repositorios de datos
+                \item Control de concurrencia
+            \end{itemize}
+
+
+
+
+        % ==============================================
+        % ===    ELEMENTOS DE UNA BASE DE DATOS   ======
+        % ==============================================
+        \clearpage
+        \section{Elementos de un Sistema de Base de Datos}
+
+            \includegraphics[width=0.85\textwidth]{DiagramaPartes.png}
+
+            \begin{itemize}
+                \item
+                    \textbf{Aplicaciones}: Son las aplicaciones que usan la Base de Datos, generalmente creado
+                    en lenguajes de Alto Nivel.
+
+                \item
+                    \textbf{Conector:}Son las Apis, o las funciones que permiten a la aplicación interactuar
+                    con nuestra base de datos.
+
+                \item
+                    \textbf{Servidor de Datos:}Son el software especialízado qu nos permite manipular
+                    inteligentemente nuestro datos:
+
+                    \begin{itemize}
+                        \item Creación de Repositorios
+                        \item Creación de Cuentas de Usuarios
+                        \item Se encarga de crear archivos lógicos, físicos y objetos de la BD.
+                        \item Se encarga de administrar las transacciones, bloqueos , etc.
+                    \end{itemize}
+
+            \end{itemize}
+
+
+
+
+        % ==============================================
+        % ========   ABSTRACCIÓN DE LOS DATOS   ========
+        % ==============================================
+        \clearpage
+        \section{Abstracción de los Datos}
+
+            \begin{itemize}
+                \item
+                    \textbf{Nivel Físico}: 
+
+                    Es el nivel base de abstracción que describe como es que la información
+                    es guardade de manera actual. Esto nos permite describir como de complejo
+                    es que son las estructuras en la realidad.
+
+                \item
+                    \textbf{Nivel Lógico}: 
+
+                    Es el nivel que nos muestra como es que se almacena la información dentro de
+                    la base de datos y como es que se da la relaciones entre la información.
+
+                    Aunque la implementación de las estructuras simples en el nivel lógico puede
+                    implicar complejas estructuras de nivel físico, el usuario de este nivel no
+                    necesita ser consciente de esta complejidad.
+                    Esto se conoce como independencia de datos físicos. 
+                    Los administradores de bases de datos, que deben decidir qué información debe
+                    conservar en la base de datos, utilizan el nivel lógico de abstracción.
+
+                \item
+                    \textbf{Nivel Visual}: 
+
+                    El nivel más alto de abstracción describe sólo una parte de la base de datos completa.
+
+                    Aunque el nivel lógico utiliza estructuras más simples, la complejidad se mantiene
+                    debido a la variedad de información almacenada en una base de datos grande.
+
+                    Muchos usuarios del sistema de base de datos no necesitan toda esta información, 
+                    sólo necesitan acceder a una parte de la base de datos.
+                    El nivel de vista de la abstracción existe para simplificar su interacción
+                    con el sistema.
+
+            \end{itemize}
+
 
 
         % ===============================================
@@ -297,6 +398,24 @@
         \section{Usuarios de una Base de Datos}
 
             \begin{itemize}
+
+                \item
+                    \textbf{Diseñadores de la Base de Datos}
+
+                    \begin{itemize}
+                        \item Encargado de grabar los propios Módelos de Datos:
+                        
+                        \begin{itemize}
+                            \item Conceptuales: E/S
+                            \item Lógicos: Relacionados
+                            \item Físicos: Índices o Estructuras de Datos
+                        \end{itemize}
+
+                        \item Esquema de la Base de Datos
+                        
+                    \end{itemize}
+
+
                 \item
                     \textbf{Administrador de la Base de Datos}
 
@@ -315,21 +434,6 @@
                             \item Llevar a cabo las tecnicas de recuperación
                         \end{itemize}
 
-                \item
-                    \textbf{Diseñadores de la Base de Datos}
-
-                    \begin{itemize}
-                        \item Encargado de grabar los propios Módelos de Datos:
-                        
-                        \begin{itemize}
-                            \item Conceptuales: E/S
-                            \item Lógicos: Relacionados
-                            \item Físicos: Índices o Estructuras de Datos
-                        \end{itemize}
-
-                        \item Esquema de la Base de Datos
-                        
-                    \end{itemize}
 
 
                 \item
@@ -389,24 +493,165 @@
             \end{itemize}
 
 
+
+
+
+
         % ===============================================
-        % ====    VENTAJAS DE UNA BASE DE DATOS      ====
+        % ===========     DML VS DDL      ===============
         % ===============================================
         \clearpage
-        \section{Propositos de un Sistema de Base de Datos}
+        \section{DML vs DDL}
 
-        A diferencias de un Sistema de Archivos, un Sistema de BD
-        busca:
-        \begin{itemize}
-            \item Evitar o miniza la redundancia
-            \item Evitar inconsistencias en los datos
-            \item Eliminar inconsistencias en los datos
-            \item Comunicacion con distintos repositorios de datos
-            \item Control de concurrencia
-        \end{itemize}
+            \begin{itemize}
+
+                \item
+                    \textbf{DML}
+
+                        Data Manipulation Languaje, es un lenguaje que nos permite modificar los
+                        datos guardados.
+
+                        Los tipos de acceso que tenemos disponibles son:
+
+                        \begin{itemize}
+                            \item Recuperar información
+                            \item Insertar nueva información
+                            \item Eliminar la información
+                            \item Modificación de la información
+                        \end{itemize}
+
+                    Una consulta o query es una sentencia que solicita la recuperación de información.
+                    La parte de un DML que implica recuperación de información se denomina lenguaje
+                    de consulta.
+
+                    Aunque técnicamente incorrecto, solemos utilizar los términos lenguaje de consulta
+                    y lenguaje de manipulación de datos como sinónimos.
+
+
+                \item
+                    \textbf{DDL}
+
+                    Data Definition Languaje, es Lenguaje de definición de datos.
+
+                    Especificamos un esquema de base de datos mediante un conjunto de definiciones
+                    expresadas por un lenguaje especial denominado DDL.
+
+                    El DDL también se utiliza para especificar propiedades adicionales de los datos.
+
+            \end{itemize}
+            \clearpage
+
+
+            Podemos simplificar en el sentido de SQL que:
+
+            \textbf{DDL: Data Definition Language}, mediante el cual puede definir nuevos objetos
+            de base de datos, como Table, Views, Stored Procedures, etc.
+            Algunos comandos comunes son:
+
+            \begin{itemize}
+                \item CREATE
+                \item ALTER
+                \item DROP
+                \item etc...
+            \end{itemize}
+
+
+            \textbf{DML: Data Manipulation Language}, mediante el cual puede realizar cambios en
+            los objetos creados anteriormente por DDLs. Algunos comandos comunes son:
+
+            \begin{itemize}
+                \item INSERT
+                \item UPDATE
+                \item DELETE
+                \item SELECT
+                \item etc...
+            \end{itemize}
 
 
 
+
+        % ===============================================
+        % ====     ARQUITECTURA DE SISTEMA DE DB    =====
+        % ===============================================
+        \clearpage
+        \section{Arquitectura del Sistema Gestor}
+
+            Podemos acceder al Sistema Gestor de nuestra Base de Datos de muchas maneras, 
+            desde formularios web, aplicaciones de escritorio e interpretes de SQL, todos se
+            comunican con la Base de Datos mediante SQL.
+
+            \begin{itemize}
+
+                \item
+                    \textbf{Motor de Evaluación de Consultas}
+
+                        \begin{itemize}
+                            \item Analizador:
+                                Este se encarga de analizar las sentencias SQL a nivel
+                                sintactico y lexico, así como una validación de que existan
+                                dichas relaciones y atributos.
+
+                                Es lo que mucha gente conoce como un compilador de DDL ó DML.
+
+                            \item Evaluador de Operaciones:
+                                Este se encarga de crear el árbol canónico, es decir, la forma
+                                formal que tendría el árbol necesario para acceder a la información.
+
+                            \item Optimizador:
+                                Se encarga de tomar el árbol canónico y optimizarlo para que se tenga
+                                que hacer la menor cantidad de operación a nivel lógico, este se conoce
+                                como árbol de consulta. 
+
+                            \item Ejecutor de Planes:
+                                Se encarga de planear la mejor estrategia para ejecutar la consulta
+                                de tal manera que se optimize de manera física.
+                        \end{itemize}
+
+                \item
+                    \textbf{Gestores}
+
+                        \begin{itemize}
+                            \item Gestor de Transacciones:
+                                Este es el que se encarga de organizar varias sentencias SQL para ejecutarlas
+                                como una transacción.
+                            
+                            \item Gestor de Bloqueos:
+                                Este es el que se encarga de ver si es que cierta relación 
+                                esta bloqueada porque esta ocurriendo una transacción en ese momento.
+                        \end{itemize}
+
+            \end{itemize}
+
+
+
+
+
+
+
+
+
+
+    % ===============================================================================
+    % =========================           S Q L                ======================
+    % ===============================================================================
+    \chapter{SQL}
+
+        % ==============================================
+        % ========      SQL COMO LENGUAJE      =========
+        % ==============================================
+        \clearpage
+        \section{SQL como Lenguaje}
+            
+            SQL \textbf{no} es tan potente como una máquina universal de Turing.
+
+            Es decir, hay algunos cálculos que son posibles utilizando un lenguaje de programación
+            de propósito general, pero no son posibles con SQL.
+            SQL también no admite acciones como la entrada de usuarios, la salida a las pantallas 
+            ó la comunicación a través de la red.
+            Dichas computaciones y acciones deben escribirse en un lenguaje principal (C, C++ ó Java)
+            con consultas SQL incorporadas que acceden a los datos de la base de datos
+
+            Los programas de aplicación son programas que se utilizan para interactuar con la base de datos de esta manera.
 
 \end{document}
 
