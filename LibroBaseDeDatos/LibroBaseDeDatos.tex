@@ -10,6 +10,7 @@
     \usepackage[margin=1.2in]{geometry}                             %Margins and Geometry pacakge
     \usepackage{ifthen}                                             %Allow simple programming
     \usepackage{hyperref}                                           %Create MetaData for a PDF and LINKS!
+    \hypersetup{pageanchor=false}                                   %Solve 'double page 1' warnings in build
     \setlength{\parindent}{0pt}                                     %Eliminate ugly indentation
     \author{Oscar Andrés Rosas}                                     %Who I am
 
@@ -40,6 +41,7 @@
     \usepackage{tabularx}                                           %Lets make tables awesome
     \usepackage{multirow}                                           %Lets make tables awesome
     \usepackage{multicol}                                           %Create multicolumns
+
 
     % *********   HEADERS AND FOOTERS ********
     \usepackage{fancyhdr}                                           %Lets make awesome headers/footers
@@ -248,6 +250,9 @@
             tiene necesariamente un repositorio de datos. Así como progrmas que nos permitan acceder
             y manipular esa información.
 
+            Podemos definir de manera alterna como: Una colección de registros el cual es almacenada
+            en una computadora de una forma sistemática (estructurada), de tal forma que un programa
+            de computadora pueda consultarlo para responder consultas.
 
 
 
@@ -258,6 +263,14 @@
 
             Todo muy bien, pero ¿porque debería importarme un comino?¿Porqué preferir una base de datos
             sobre simplemente guardar los datos de manera \Quote{común}?
+
+            Antes de la aparición de los SGBD, las organizaciones normalmente almacenaban la
+            información en Sistemas de Procesamiento de Archivos Típicos (Sistemas de Archivos).
+
+            Un sistema de archivos es un conjunto de programas que prestan servicio a los usuarios
+            finales, donde cada programa define y maneja sus propios datos, los cuales presentan
+            los siguientes inconvenientes:
+
             \begin{itemize}
                 \item
                     \textbf{Redundancia de datos e inconsistencia}:
@@ -265,8 +278,9 @@
                         en que los demás programadores crearán aplicaciones y sobretodo en como
                         van a guardar los datos.
 
-                        Peor aún, ¿Qué pasa cuando tengamos un motón de archivos con casi la misma información?
-                        es decir cuando tengamos un montón de archivos con tu mismo número de telefono,
+                        Peor aún, ¿Qué pasa cuando tengamos un motón de archivos con casi la misma
+                        información?
+                        Es decir cuando tengamos un montón de archivos con tu mismo número de telefono,
                         con tu misma información de contacto. 
 
                 \item
@@ -288,6 +302,18 @@
                         que empezar a buscar. Y esto se vuelve un verdadero desastre cuando intentamos
                         modificar la información guardada.
 
+                \item
+                    \textbf{Problemas con Integridad}:
+                        Los valores de los datos almacenados en la base de datos, deben satisfacer
+                        ciertos tipos de restricciones de consistencia.
+
+                        Por ejemplo, el saldo de cierto tipo de cuentas bancarias no pueden ser nunca
+                        inferior a una cantidad predeterminada, digamos 4000 dolares.
+
+                        Los desarrolladores deben cumplir estas restricciones en el sistema añadiendo
+                        el código correspondiente en los diversos programas de aplicación. Sin embargo,
+                        cuando se añaden nuevas restricciones, es difícil cambiar los programas para
+                        hacer que se cumplan. 
 
                 \item
                     \textbf{Problemas con Atomicidad}:
@@ -298,6 +324,24 @@
                         Como si el sistema fallara justo al hacer una transacción bancaria, me interesa que 
                         se haya realizado o no, pero que no le haya quitando dinero a una cuenta pero no se la
                         haya dado al otro cliente. 
+
+
+                \item
+                    \textbf{Errores del Acceso Concurrente}:
+                        Para aumentar el rendimiento global del sistema y obtener una respuesta más
+                        rápida, muchos sistemas permiten que varios usuarios actualicen los datos
+                        simultaneamente. En realidad hoy en día, los principales sitios de comercio
+                        electrónico en internet pueden tener millones de accesos diarios de compradores
+                        a sus datos. En tales entornos es posible la interacción de actualizaciones
+                        concurrentes y puede dar lugar a datos inconsistentes.
+
+
+                \item
+                    \textbf{Problemas de seguridad}:
+                        No todos los usuarios de un sistema de base de datos deben tener acceso a todos
+                        los datos. Ya que los programas de aplicación se añaden al sistema de
+                        procesamiento de datos de un forma adhoc, es difícil hacer cumplir tales
+                        restricciones de seguridad.
 
             \end{itemize}
 
@@ -324,16 +368,21 @@
 
             \begin{itemize}
                 \item
-                    \textbf{Aplicaciones}: Son las aplicaciones que usan la Base de Datos, generalmente creado
-                    en lenguajes de Alto Nivel.
+                    \textbf{Aplicaciones:} Es la interfaz entre la base de datos y el usuario, estas pueden
+                    ser desarrolladas por un lenguaje de alto nivel 
 
                 \item
-                    \textbf{Conector:}Son las Apis, o las funciones que permiten a la aplicación interactuar
-                    con nuestra base de datos.
+                    \textbf{Conector:} Son los componentes que permiten el enlace entre el SGBD y las
+                    interfaces desarrolladas en un lenguaje de programación, estas contienen las clases
+                    y/o funciones necesarias para llevar a cabo la comunicación entre las aplicaciones
+                    con el Sistema Gestor de Base de Datos.
 
                 \item
-                    \textbf{Servidor de Datos:}Son el software especialízado qu nos permite manipular
-                    inteligentemente nuestro datos:
+                    \textbf{Sistema Gestor de Base de Datos:} Son el software especialízado que
+                    nos permite manipular inteligentemente nuestro datos:
+
+                    Es la aplicación que permite a los usuarios definir, crear y mantener la base
+                    de datos y proporciona acceso controlado a la misma.
 
                     \begin{itemize}
                         \item Creación de Repositorios
@@ -397,22 +446,20 @@
         \clearpage
         \section{Usuarios de una Base de Datos}
 
+
+            Hay cuatro grupos de personas que intervienen en el entorno de un sistema de base de datos:
+            el administrador de la base de datos, los diseñadores de la base de datos, los programadores
+            de aplicaciones y los usuarios.
+
             \begin{itemize}
 
                 \item
                     \textbf{Diseñadores de la Base de Datos}
 
                     \begin{itemize}
-                        \item Encargado de grabar los propios Módelos de Datos:
-                        
-                        \begin{itemize}
-                            \item Conceptuales: E/S
-                            \item Lógicos: Relacionados
-                            \item Físicos: Índices o Estructuras de Datos
-                        \end{itemize}
-
+                        \item Encargado de grabar los propios Módelos de Datos
                         \item Esquema de la Base de Datos
-                        
+                        \item Diseño lógico de la Base de Datos
                     \end{itemize}
 
 
@@ -423,6 +470,7 @@
 
                         \begin{itemize}
                             \item Monitorear el Performance
+                            \item Diseño físico de la base de datos y de su implementación.
                             \item Herramientas Administrativas
                                 \begin{itemize}
                                     \item Creacion de cuentas de usuarios
@@ -434,10 +482,12 @@
                             \item Llevar a cabo las tecnicas de recuperación
                         \end{itemize}
 
-
-
                 \item
                     \textbf{Programadores de Aplicaciones}
+
+                    Son los que se encargan de implementar los programas de aplicación que
+                    servirán a los usuarios finales. Estos programas son los que permiten
+                    consultar datos, insertarlos, actualizarlos y eliminarlos.
 
                     \begin{itemize}
                         \item Interfaces de los usuarios finales
@@ -458,39 +508,51 @@
 
             \end{itemize}
 
+
+            % ==================================
+            % ====     USUARIOS FINALES     ====
+            % ==================================
             \clearpage
             \subsection{Usuarios Finales}
-            \begin{itemize}
-                    \item
-                        \textbf{Casuales}
 
-                        \begin{itemize}
-                            \item Data Minning
-                            \item Big Data
-                        \end{itemize}
+                Los usuarios finales son los clientes de la base de datos, son las personas que
+                requieren acceso a la base de datos para realizar consultas, actualizaciones e
+                informes. Los usuarios se pueden clasificar en varias categorías:
+                \begin{itemize}
+                        \item
+                            \textbf{Casuales}
+                            Estos acceden ocasionalmente a la base de datos, pero pueden necesitar una
+                            información diferente en cada momento.
 
-                    \item 
-                        \textbf{Principiantes - Paramétricos}
-                        :Puntos de venta.
-
-                    \item 
-                        \textbf{Sofisticados}
-                        \begin{itemize}
-                            \item Experiencia en aplicaciones 
-                            \item Programadores de aplicación
-                            \item DBA 
-                            \item Investigadores
-                         \end{itemize}
-                        
-                    \item 
-                        \textbf{Independientes (Stand Alone)} 
                             \begin{itemize}
-                                \item Sistemas Escolares
-                                \item Sistemas de prueba
-                                \item Sin conectividad a otros nodos
+                                \item Data Minning
+                                \item Big Data
                             \end{itemize}
 
-            \end{itemize}
+                        \item 
+                            \textbf{Principiantes - Paramétricos}
+                            Constituyen una parte considerable de los usuarios finales de los
+                            sistemas de bases de datos. Su labor principal gira entorno a la
+                            consulta y actualización constantes de la BD.
+
+                        \item 
+                            \textbf{Sofisticados}
+                            \begin{itemize}
+                                \item Experiencia en aplicaciones 
+                                \item Programadores de aplicación
+                                \item DBA 
+                                \item Investigadores
+                             \end{itemize}
+                            
+                        \item 
+                            \textbf{Independientes (Stand Alone)} 
+                                \begin{itemize}
+                                    \item Sistemas Escolares
+                                    \item Sistemas de prueba
+                                    \item Sin conectividad a otros nodos
+                                \end{itemize}
+
+                \end{itemize}
 
 
 
@@ -618,6 +680,19 @@
                             \item Gestor de Bloqueos:
                                 Este es el que se encarga de ver si es que cierta relación 
                                 esta bloqueada porque esta ocurriendo una transacción en ese momento.
+
+                                Los bloqueos son una parte muy importatne de este gesto.
+
+                                Podemos definirlos en principalmente 2:
+                                \begin{itemize}
+                                    \item Binario:
+                                        Es decir permite que una relación este o bine bloqueada
+                                        o no para lectura o escritura.
+                                    \item Múltiplos Niveles:
+                                        Es decir nos permite que existan bloqueos de lectura,
+                                        escritura diferentes, ayudando a evitar las esperas si no
+                                        son necesarias.
+                                \end{itemize}
                         \end{itemize}
 
             \end{itemize}
@@ -625,7 +700,88 @@
 
 
 
+    % ===============================================================================
+    % ===================        SISTEMA RELACIONAL         =========================
+    % ===============================================================================
+    \chapter{Sistema Relacional}
 
+
+
+        % ==============================================
+        % =========      INTRODUCCION          =========
+        % ==============================================
+        \clearpage
+        \section{Introducción}
+
+        Las bases de datos relacionales facilitan evitar la duplicidad de información
+        e inconsistencias de datos.
+        La mayoría de los sistemas de bases de datos utilizados hoy en día son relacionales.
+
+        En el modelo relacional, los datos se dividen en diferentes \textbf{tables}.
+        Una tabla funciona como una matriz o una hoja de cálculo.
+
+        Normalmente, las columnas imponen un tipo de datos que pueden contener.
+        Las columnas también pueden especificar otras restricciones: si es obligatorio que las
+        filas tengan un valor en esa columna, si el valor de la columna debe ser único en todas
+        las filas y cosas así.
+
+        Las columnas se denominan más comúnmente atributos.
+        Si una columna sólo permite números enteros, decimos que es un campo entero.
+        Diferentes tablas utilizan diferentes tipos de campos.
+
+        La organización de una tabla de base de datos viene dada por sus campos y las
+        restricciones que imponen.
+
+        Todas las entradas de datos son filas y el sistema de base de datos no aceptará
+        una fila en una tabla si viola el esquema de la tabla. Esa es una gran limitación
+        del modelo relacional.
+        Cuando las características de los datos varían demasiado, la adaptación de los datos
+        a un esquema fijo puede ser problemática. Pero si está trabajando con datos de
+        estructura homogénea, un esquema fijo le ayudará a garantizar que los datos son válidos.
+
+
+
+        % ==============================================
+        % =========      RELACIONES            =========
+        % ==============================================
+        \clearpage
+        \section{Relaciones}
+
+            Para evitar la redundancia de datos la clave esta en crear diversas tablas
+            e ir relacionandolas.
+
+            Para lograr esto tenemos que crear relaciones, y es imposible hablar de relaciones
+            sin hablar de llaves:
+
+
+            \begin{itemize}
+                \item
+                    \textbf{Primary Key:}
+                    La idea de una llave primaria es crear un atributo que tiene, tiene pero
+                    tiene que ser único y es recomendable que casi no cambie.
+
+
+                \item
+                    \textbf{Foreign Key:}
+                    La idea de una llave secundaria es crear un atributo que tiene que alguna otra
+                    tabla sea la llave primaria. Eso es todo.
+
+            \end{itemize}
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+            
+        
 
 
 
@@ -654,6 +810,24 @@
             Los programas de aplicación son programas que se utilizan para interactuar con la base de datos de esta manera.
 
 \end{document}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
