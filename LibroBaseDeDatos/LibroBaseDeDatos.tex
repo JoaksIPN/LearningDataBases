@@ -669,6 +669,7 @@
                                 de tal manera que se optimize de manera física.
                         \end{itemize}
 
+                \clearpage
                 \item
                     \textbf{Gestores}
 
@@ -693,10 +694,68 @@
                                         escritura diferentes, ayudando a evitar las esperas si no
                                         son necesarias.
                                 \end{itemize}
+
+                            \item Gestor de Recuperación:
+                                Este es el que se encarga de definir todas las técnicas de recuperación
+                                sobre la base, estas mismas las podemos definir en dos:
+                                \begin{itemize}
+                                    \item Inmediatas: Son las que podemos representar como rollback o rollfoward
+                                    \item Técnicas en Frío: Usa una copia de seguridad
+                                \end{itemize}
+
+
+                            \item Gestor de Archivos y Métodos de Acceso
+                                Todos los elementos, metadatos, logs, funciones, etc... tienen que estar
+                                almacenada de manera física.
+
+                                Este se encarga de dependiendo de las querys como es que debe acceder de 
+                                manera eficiente a los datos.
+
+                            \item Gestor de Memoria Intermedia
+                                Es como una RAM, nos permite guardar consultas bastante frecuentes
+                                para aumentar la velocidad sobre la RAM
                         \end{itemize}
 
             \end{itemize}
 
+
+
+
+
+
+        % ===============================================
+        % ====     ARQUITECTURA DE BASES DE DATOS   =====
+        % ===============================================
+        \clearpage
+        \section{Arquitecturas de las Bases de Datos}
+
+
+            \begin{itemize}
+
+                \item
+                    \textbf{Cliente - Servidor}
+
+                    Mientras que el servidor es aquel que contiene toda la información 
+                    importante, el cliente solo se encarga de solicitar servicios.
+
+                    Podemos seperar estos como:
+                    \begin{itemize}
+                        \item Cliente sin Disco:
+                            Aquel que puede acceder a la información pero no puede modificarlo.
+
+                        \item Cliente con Disco:
+                            Aquel que puede acceder a la información y puede modificarlo.
+                     \end{itemize} 
+
+
+                \item
+                    \textbf{Multibase}
+
+                    Esta se caracterisa porque cada base de datos interna que tienes no se relaciona
+                    entre si, es decir, no hay comunación entre ellas.
+
+                        
+            \end{itemize}
 
 
 
