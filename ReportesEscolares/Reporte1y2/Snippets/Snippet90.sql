@@ -1,0 +1,2 @@
+SHOW CREATE TABLE EmpleadoCinemex;
+SHOW CREATE TABLE Gerente;

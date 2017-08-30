@@ -1,0 +1,4 @@
+ALTER TABLE Cinemex DROP PRIMARY KEY;
+
+ALTER TABLE Cinemex ADD PRIMARY KEY(IDCine, Nombre);
+DESC Cinemex;
