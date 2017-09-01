@@ -283,6 +283,8 @@
                         Es decir cuando tengamos un montón de archivos con tu mismo número de telefono,
                         con tu misma información de contacto. 
 
+                \clearpage
+
                 \item
                     \textbf{Problemas para acceder a la información que queriamos en primer lugar}:
                         Supongamos que queremos acceder a los datos, digamos que tenemos un montón
@@ -295,7 +297,6 @@
                         Y esto podría servir muy bien.... Hasta que necesitemos algo más.
                         Entonces tenemos que estar haciendo programas y programas ¡Que cansado!
 
-                \clearpage
                 \item
                     \textbf{Aislamiento de la Información}:
                         Ya que puede estar repartida por todos lados, no se exactamente por donde tengo
@@ -345,8 +346,9 @@
 
             \end{itemize}
 
+            \clearpage
 
-            Podemos resumir esto con que a diferencia de un sistema de archivos, una base de datos                busca:
+            Podemos resumir esto con que a diferencia de un sistema de archivos, una base de datos busca:
             \begin{itemize}
                 \item Evitar o miniza la redundancia
                 \item Evitar inconsistencias en los datos
@@ -765,74 +767,144 @@
             \end{itemize}
 
 
-
-    % ===============================================================================
+     % ===============================================================================
     % ===================        SISTEMA RELACIONAL         =========================
     % ===============================================================================
-    \chapter{Sistema Relacional}
+    \chapter{Modelos de Datos}
 
 
 
         % ==============================================
-        % =========      INTRODUCCION          =========
-        % ==============================================
-        \clearpage
-        \section{Introducción}
-
-        Las bases de datos relacionales facilitan evitar la duplicidad de información
-        e inconsistencias de datos.
-        La mayoría de los sistemas de bases de datos utilizados hoy en día son relacionales.
-
-        En el modelo relacional, los datos se dividen en diferentes \textbf{tables}.
-        Una tabla funciona como una matriz o una hoja de cálculo.
-
-        Normalmente, las columnas imponen un tipo de datos que pueden contener.
-        Las columnas también pueden especificar otras restricciones: si es obligatorio que las
-        filas tengan un valor en esa columna, si el valor de la columna debe ser único en todas
-        las filas y cosas así.
-
-        Las columnas se denominan más comúnmente atributos.
-        Si una columna sólo permite números enteros, decimos que es un campo entero.
-        Diferentes tablas utilizan diferentes tipos de campos.
-
-        La organización de una tabla de base de datos viene dada por sus campos y las
-        restricciones que imponen.
-
-        Todas las entradas de datos son filas y el sistema de base de datos no aceptará
-        una fila en una tabla si viola el esquema de la tabla. Esa es una gran limitación
-        del modelo relacional.
-        Cuando las características de los datos varían demasiado, la adaptación de los datos
-        a un esquema fijo puede ser problemática. Pero si está trabajando con datos de
-        estructura homogénea, un esquema fijo le ayudará a garantizar que los datos son válidos.
-
-
-
-        % ==============================================
-        % =========      RELACIONES            =========
+        % =========     MODELO ENTIDAD RELACION  =======
         % ==============================================
         \clearpage
-        \section{Relaciones}
+        \section{Sistema Entidad-Relación}
 
-            Para evitar la redundancia de datos la clave esta en crear diversas tablas
-            e ir relacionandolas.
+            Fue creado por Peter Pincham Shan
 
-            Para lograr esto tenemos que crear relaciones, y es imposible hablar de relaciones
-            sin hablar de llaves:
-
-
-            \begin{itemize}
-                \item
-                    \textbf{Primary Key:}
-                    La idea de una llave primaria es crear un atributo que tiene, tiene pero
-                    tiene que ser único y es recomendable que casi no cambie.
+            Es un modelo conceptual, es decir, creado en lenguaje natural y se se ayuda 
+            de DER (gráficas) para hablar de las relaciones.
 
 
-                \item
-                    \textbf{Foreign Key:}
-                    La idea de una llave secundaria es crear un atributo que tiene que alguna otra
-                    tabla sea la llave primaria. Eso es todo.
+            % ==============================================
+            % =========      ELEMENTOS             =========
+            % ==============================================
+            \clearpage
+            \subsection{Elementos}
 
-            \end{itemize}
+                \begin{itemize}
+                    \item
+                        \textbf{Entidades:}
+
+                            Son objetos que existen en el mundo real y que son distingubles
+                            (gracias a sus características) de otros objetos.
+
+                            El tipo de entidad es el esquema que tiene la entidad en la base de datos, es decir
+                            son todos los atributos o características que definien a la entidad.
+
+                            \begin{itemize}
+                                \item Fuerte:\\
+                                    Es aquella entidad cuya existencia no depende de otras entidades.
+                                \item 
+                                    Debíl:\\
+                                    Es aquella entidad cuya existencia depende de otras entidades.
+                                    \begin{itemize}
+                                        \item Esta depende de de una o varias entidades fuertes
+                                        \item Una entidad debíl jamas se debe asociar con una entidad debíl
+                                        \item Una entidad debíl no tiene identificador propio, pero si parciales
+                                        \item Usa una relación identificada para asociar una entidad fuerte con una debíl
+                                    \end{itemize}
+
+
+                                \item Asociativa: 
+                            \end{itemize}
+
+
+                    \item
+                        \textbf{Atributos:}
+                            \begin{itemize}
+                                \item Identificador:
+                                    Es aquel atributo que nos permite identificar de forma unica cada una de las
+                                    instancias de la entidad.
+                                \item Simples
+                                \item Compuestos
+                                \item Multivalor
+                                \item Derivado
+                                \item Identidades
+                            \end{itemize}
+
+                \end{itemize}
+
+
+
+
+
+
+
+
+
+
+
+        % ==============================================
+        % =========      SISTEMA RELACIONAL     ========
+        % ==============================================
+        \clearpage
+        \section{Sistema Relacional}
+
+            Las bases de datos relacionales facilitan evitar la duplicidad de información
+            e inconsistencias de datos.
+            La mayoría de los sistemas de bases de datos utilizados hoy en día son relacionales.
+
+            En el modelo relacional, los datos se dividen en diferentes \textbf{tables}.
+            Una tabla funciona como una matriz o una hoja de cálculo.
+
+            Normalmente, las columnas imponen un tipo de datos que pueden contener.
+            Las columnas también pueden especificar otras restricciones: si es obligatorio que las
+            filas tengan un valor en esa columna, si el valor de la columna debe ser único en todas
+            las filas y cosas así.
+
+            Las columnas se denominan más comúnmente atributos.
+            Si una columna sólo permite números enteros, decimos que es un campo entero.
+            Diferentes tablas utilizan diferentes tipos de campos.
+
+            La organización de una tabla de base de datos viene dada por sus campos y las
+            restricciones que imponen.
+
+            Todas las entradas de datos son filas y el sistema de base de datos no aceptará
+            una fila en una tabla si viola el esquema de la tabla. Esa es una gran limitación
+            del modelo relacional.
+            Cuando las características de los datos varían demasiado, la adaptación de los datos
+            a un esquema fijo puede ser problemática. Pero si está trabajando con datos de
+            estructura homogénea, un esquema fijo le ayudará a garantizar que los datos son válidos.
+
+
+
+            % ==============================================
+            % =========      RELACIONES            =========
+            % ==============================================
+            \clearpage
+            \subsection{Relaciones}
+
+                Para evitar la redundancia de datos la clave esta en crear diversas tablas
+                e ir relacionandolas.
+
+                Para lograr esto tenemos que crear relaciones, y es imposible hablar de relaciones
+                sin hablar de llaves:
+
+
+                \begin{itemize}
+                    \item
+                        \textbf{Primary Key:}
+                        La idea de una llave primaria es crear un atributo que tiene, tiene pero
+                        tiene que ser único y es recomendable que casi no cambie.
+
+
+                    \item
+                        \textbf{Foreign Key:}
+                        La idea de una llave secundaria es crear un atributo que tiene que alguna otra
+                        tabla sea la llave primaria. Eso es todo.
+
+                \end{itemize}
 
 
  
