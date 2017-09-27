@@ -224,6 +224,8 @@
 \clearpage
 
 
+
+
     % ===============================================================================
     % ===================           DEFINICIONES               ======================
     % ===============================================================================
@@ -721,9 +723,9 @@
             \end{itemize}
 
 
-            \begin{figure}[h]
+            \begin{figure}[h!]
                 \centering
-                \includegraphics[width=0.85\textwidth]{ArquitecturaSGBD.pdf}
+                \includegraphics[width=0.65\textwidth]{ArquitecturaSGBD.pdf}
             \end{figure}
 
 
@@ -767,11 +769,13 @@
             \end{itemize}
 
 
-     % ===============================================================================
+
+
+
+    % ===============================================================================
     % ===================        SISTEMA RELACIONAL         =========================
     % ===============================================================================
     \chapter{Modelos de Datos}
-
 
 
         % ==============================================
@@ -780,60 +784,180 @@
         \clearpage
         \section{Sistema Entidad-Relación}
 
-            Fue creado por Peter Pincham Shan
+            Fue creado por Peter Pin‐Shan Chen en 1976, llamado \Quote{The Entity Relationship
+            Model Toward Unified View of Data}
 
             Es un modelo conceptual, es decir, creado en lenguaje natural y se se ayuda 
             de DER (gráficas) para hablar de las relaciones.
 
+            Permite construir el modelo conceptual de datos.
+            \begin{itemize}
+                
+                \item Es una representación de la estructura y contenido de una base de datos.
+
+                \item Es independiente  del software (como el SMBD).
+                
+                \item Permite establecer las restricciones de la BD.
+
+                \item Esta asociado al modelo de datos que es usado para implementar la BD.
+
+            \end{itemize}
+
+            Siendo una publicado por la ACM (Association for Computing Machinery), 
+            considera los siguientes puntos:
+
+            \begin{itemize}
+                \item Incorpora información semántica del mundo real.
+
+                \item Introduce una técnica gráfica como herramienta para el diseño
+                    de bases de datos (Diagrama Entidad Relación).
+
+                \item Es una representación lógica de los datos de una organización o
+                    un área de negocio.
+
+                \item Normalmente es expresado como un DER, siendo este la representación
+                    gráfica del Modelo ER.
+            \end{itemize}
+
 
             % ==============================================
-            % =========      ELEMENTOS             =========
+            % =========      ENTIDADES             =========
             % ==============================================
             \clearpage
-            \subsection{Elementos}
+            \subsection{Entidades}
+                    
+                Son objetos que existen en el mundo real y que son distingubles
+                (gracias a sus características) de otros objetos.
+
+                El tipo de entidad es el esquema que tiene la entidad en la base de datos,
+                es decir son todos los atributos o características que definien a la entidad.
+
+                Piensa en las entidades como sustantivos.
+                Ejemplos: cliente, estudiante, automóvil o producto. 
+
+
+                \begin{figure}[h]
+                    \centering
+                    \includegraphics[width=0.30\textwidth]{Entidad0}
+                    \includegraphics[width=0.30\textwidth]{Entidad1}
+                    \includegraphics[width=0.30\textwidth]{Entidad2}
+                \end{figure}
+
 
                 \begin{itemize}
-                    \item
-                        \textbf{Entidades:}
-
-                            Son objetos que existen en el mundo real y que son distingubles
-                            (gracias a sus características) de otros objetos.
-
-                            El tipo de entidad es el esquema que tiene la entidad en la base de datos, es decir
-                            son todos los atributos o características que definien a la entidad.
-
-                            \begin{itemize}
-                                \item Fuerte:\\
-                                    Es aquella entidad cuya existencia no depende de otras entidades.
-                                \item 
-                                    Debíl:\\
-                                    Es aquella entidad cuya existencia depende de otras entidades.
-                                    \begin{itemize}
-                                        \item Esta depende de de una o varias entidades fuertes
-                                        \item Una entidad debíl jamas se debe asociar con una entidad debíl
-                                        \item Una entidad debíl no tiene identificador propio, pero si parciales
-                                        \item Usa una relación identificada para asociar una entidad fuerte con una debíl
-                                    \end{itemize}
+                    \item Fuerte:\\
+                        Es aquella entidad cuya existencia no depende de otras entidades.
+                    \item 
+                        Debíl:\\
+                        Es aquella entidad cuya existencia depende de otras entidades.
+                        \begin{itemize}
+                            \item Esta depende de de una o varias entidades fuertes
+                            \item Una entidad debíl jamas se debe asociar con una entidad debíl
+                            \item Una entidad debíl no tiene identificador propio, pero si parciales
+                            \item Usa una relación identificada para asociar una entidad fuerte con una debíl
+                        \end{itemize}
 
 
-                                \item Asociativa: 
-                            \end{itemize}
+                    \item Asociativa: \\
+                        Se usa cuando tienes una relación y resulta que quieres usar esta relación
+                        como conexión (por ejemplo la relación entre alumno y clase) así que haces
+                        esa relación una entidad asociativa (por ejemplo para asociar esta nueva
+                        entidad con profesor).
+                \end{itemize}
 
 
-                    \item
-                        \textbf{Atributos:}
-                            \begin{itemize}
-                                \item Identificador:
-                                    Es aquel atributo que nos permite identificar de forma unica cada una de las
-                                    instancias de la entidad.
-                                \item Simples
-                                \item Compuestos
-                                \item Multivalor
-                                \item Derivado
-                                \item Identidades
-                            \end{itemize}
+
+            % ==============================================
+            % =========      RELACIONES            =========
+            % ==============================================
+            \clearpage
+            \subsection{Relaciones}
+                    
+                Esto es como las entidades actúan unas sobre otras o están asociadas entre sí.
+                Piensa en las relaciones como verbos.
+
+                Por ejemplo, el estudiante nombrado puede registrarse para un curso.
+                Las dos entidades serían el estudiante y el curso, y la relación representada es
+                el acto de inscribirse, conectando las dos entidades de esa manera. 
+
+                \begin{figure}[h]
+                    \centering
+                    \includegraphics[width=0.40\textwidth]{Relacion0}
+                    \includegraphics[width=0.40\textwidth]{Relacion1}
+                \end{figure}
+
+
+            % ==============================================
+            % =========      CARDINALIDAD          =========
+            % ==============================================
+            \subsection{Cardinalidad}
+
+                Nos dice la cantidad de atributos que se relacionan.
+
+
+                \begin{figure}[h]
+                    \centering
+                    \includegraphics[width=0.80\textwidth]{Cardinalidad}
+                \end{figure}
+
+
+            % ==============================================
+            % =========      ATRIBUTOS             =========
+            % ==============================================
+            \clearpage
+            \subsection{Atributos}
+
+                Son las propiedades o características de una entidad
+                \begin{itemize}
+                    \item Identificador:
+                        Es aquel atributo que nos permite identificar de forma unica cada una de las
+                        instancias de la entidad.
+
+                        \includegraphics[width=0.20\textwidth]{Atributos1}
+
+                    \item Simples:
+                        Son aquelllas propiedades atomicas que ya no se pueden subdividir
+                        
+                        \includegraphics[width=0.20\textwidth]{Atributos0}
+
+
+                    \item Derivado:
+                        Es aquel que se puede calcular con la información que ya tenemos
+                        como la edad con la fecha de nacimiento
+
+                        \includegraphics[width=0.20\textwidth]{Atributos3}
+
+                    \item Multivalor:
+                        Aquellos que tienen mas de un valor
+
+                        \includegraphics[width=0.20\textwidth]{Atributos4}
+
+
+                    \item Compuestos :
+                        Aquellos que estan formados por varios sub atributos
 
                 \end{itemize}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
