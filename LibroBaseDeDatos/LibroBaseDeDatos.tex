@@ -89,12 +89,13 @@
     \newenvironment{SmallIndentation}[1][0.75em]                    %Use: The same that we upper one, just 
     {\begin{adjustwidth}{#1}{}\begin{footnotesize}}                 %footnotesize size of letter by default
     {\end{footnotesize}\end{adjustwidth}}                           %that's it
-        
+
+
     % =====  GENERAL MATH  ==========
     \DeclareMathOperator \Space {\quad}                             %Use: \Space for a cool mega space
     \DeclareMathOperator \MiniSpace {\;}                            %Use: \Space for a cool mini space
     \newcommand \Such {\MiniSpace|\MiniSpace}                       %Use: \Such like in sets
-    \newcommand \Also {\Space \text{y} \Space}                      %Use: \Also so it's look cool
+    \newcommand \Also {\MiniSpace \text{y} \MiniSpace}              %Use: \Also so it's look cool
     \newcommand \Remember[1]{\Space\text{\scriptsize{#1}}}          %Use: \Remember so it's look cool
 
     \newtheorem{Theorem}{Teorema}[section]                          %Use: \begin{Theorem}[Name]\label{Nombre}...
@@ -131,6 +132,7 @@
 
     % === LINEAL ALGEBRA & VECTORS ===
     \DeclareMathOperator \LinealTransformation {\mathcal{T}}        %Use: \LinealTransformation for a cool T
+    \newcommand{\Mag}[1]{\left| #1 \right|}                         %Use: \Mag {Info} 
 
     \newcommand{\pVector}[1]{                                       %Use: \pVector {Matrix Notation} use parentesis
         \ensuremath{\begin{pmatrix}#1\end{pmatrix}}                 %Example: \pVector{a\\b\\c} or \pVector{a&b&c} 
@@ -144,7 +146,6 @@
     \newcommand{\Vector}[1]{                                        %Use: \Vector {Matrix Notation} no parentesis
         \ensuremath{\begin{matrix}#1\end{matrix}}                   %Example: \Vector{a\\b\\c} or \Vector{a&b&c}
     }
-    \newcommand{\uvec}[1]{\boldsymbol{\hat{\textbf{$#1$}}}}         %Use: Unitary Vector
 
     % MATRIX
     \makeatletter                                                   %Example: \begin{matrix}[cc|c]
@@ -156,23 +157,50 @@
     \makeatother                                                    %WTF! IS THIS
 
     % TRIGONOMETRIC FUNCTIONS
-    \newcommand{\Cos}[1]{\cos\Wrap{#1}}
-    \newcommand{\Sin}[1]{\sin\Wrap{#1}}
-
-    % === CALCULUS ===                               
-    \newcommand \Derivate[2] {\dfrac{d #1}{d#2}}                    %Use: Derivate Notation
-    \newcommand \Partial[2] {\dfrac{\partial #1}{\partial#2}}       %Use: Derivate Partial Notation
-    
-    \newcommand \pDerivate[2]{\Derivate{\Wrap{#1}}{#2}}             %But with cool parentesis
-    \newcommand \pPartial[2]{\Partial{\Wrap{#1}}{#2}}               %Use: Derivate Partial
-    
-    \newcommand \SemiDerivate[1]{\Wrap{\dfrac{d}{d#1}}}             %Use: Derivate Notation
-    \newcommand \SemiPartial[1]{\Wrap{\dfrac{\partial}{\partial#1}}}%Use: Derivate Partial Notation
-
+    \newcommand{\Cos}[1]{\cos\Wrap{#1}}                             %Simple wrappers
+    \newcommand{\Sin}[1]{\sin\Wrap{#1}}                             %Simple wrappers
 
     % === COMPLEX ANALYSIS ===
     \newcommand \Cis[1]  {\Cos{#1} + i \Sin{#1}}                    %Use: \Cis for cos(x) + i sin(x)
     \newcommand \pCis[1] {\Wrap{\Cis{#1}}}                          %Use: \pCis for the same ut parantesis
+    \newcommand \bCis[1] {\Brackets{\Cis{#1}}}                      %Use: \bCis for the same to Brackets
+
+    % === CALCULUS ===
+    \newcommand \Partial[2] {\dfrac{\partial #1}{\partial #2}}      %Use: \Partial for simple use
+
+    % =====  GENERAL COLOR  =========
+    \definecolor{IndigoMD}{HTML}{3F51B5}                            %Use: Color :D
+    \definecolor{DeepPurpleMD}{HTML}{673AB7}                        %Use: Color :D
+    \definecolor{TealMD}{HTML}{009688}                              %Use: Color :D        
+    \definecolor{BlueGrey800MD}{HTML}{37474F}                       %Use: Color :D
+    \definecolor{BlueGrey100MD}{HTML}{CFD8DC}                       %Use: Color :D
+    \definecolor{IndigoMD}{HTML}{3F51B5}                            %Use: Color :D
+    \definecolor{Green100MD}{HTML}{DCEDC8}                          %Use: Color :D
+
+    \newenvironment{ColorText}[1]{                                  %Use: \begin{ColorText}
+        \leavevmode\color{#1}\ignorespaces}                         %That's is!
+
+
+    % =====  CODE EDITOR =========
+    \lstdefinestyle{CompilandoStyle} {                              %This is Code Style
+        backgroundcolor=\color{BlueGrey800MD},                      %Background Color  
+        basicstyle=\tiny\color{white},                              %Font color
+        commentstyle=\color{BlueGrey100MD},                         %Comment color
+        stringstyle=\color{TealMD},                                 %String color
+        keywordstyle=\color{Green100MD},                            %keywords color
+        numberstyle=\tiny\color{TealMD},                            %Size of a number
+        frame=shadowbox,                                            %Adds a frame around the code
+        breakatwhitespace=true,                                     %Style                       
+        breaklines=true,                                            %Style                   
+        keepspaces=true,                                            %Style                   
+        numbers=left,                                               %Style                   
+        numbersep=10pt,                                             %Style 
+        xleftmargin=\parindent,                                     %Style 
+        tabsize=4                                                   %Style 
+    }
+ 
+    \lstset{style=CompilandoStyle}                                  %Use this style
+
 
 
 
@@ -778,9 +806,9 @@
     \chapter{Modelos de Datos}
 
 
-        % ==============================================
-        % =========     MODELO ENTIDAD RELACION  =======
-        % ==============================================
+        % =========================================================
+        % =========     MODELO ENTIDAD RELACION      ==============
+        % =========================================================
         \clearpage
         \section{Sistema Entidad-Relación}
 
@@ -944,6 +972,90 @@
 
 
 
+        % ========================================================
+        % ========    MODELO EXTENDIDO ENTIDAD RELACION    =======
+        % ========================================================
+        \clearpage
+        \section{Sistema Entidad-Relación Extendido}
+
+            \begin{wrapfigure}{r}{0.18\textwidth}
+                \centering
+                \includegraphics[width=0.16\textwidth]{EERD0}
+            \end{wrapfigure}
+
+            El Modelo de Relación de Entidad Extendida es un modelo más complejo y de más
+            alto nivel que extiende un diagrama E-R para incluir más tipos de abstracción
+            y para expresar más claramente las restricciones.
+
+            Todos los conceptos de un diagrama E-R están incluidos en el modelo EE-R.
+
+            Vamos a ver las diferencias más importantes con respecto a nuestro clásico amigo
+            el diagrama entidad relación.
+
+            \begin{itemize}
+                \item
+                    \textbf{Herencia: Super y Subclases}
+
+                    Como el nombre sugiere, podemos tener entidades que consideramos padres
+                    y que heredan a otras entidades hijas.
+
+                    Por ejemplo podemos podemos tener una entidad empleado puede tener
+                    subentidades que se dividen por el trabajo que hacen, por ejemplo
+                    diseñadores, gerentes y ayudantes.
+
+                    Todas nuestras subentidades van a heredar las propiedades o atributos
+                    de nuestra superentidad.
+
+                    Esto nos permite que nuestra entidad padre sea una idea general y que
+                    nuestras subclases sean especializaciones de la misma, por esto decimos
+                    que esta clase de diagramas permite la especialización.
+
+
+                    Es también importante remarcar que alguna de nuestras entidades
+                    puede heredar de una o mas entidades
+
+
+                \item
+                    \textbf{Generalización y Especialización}
+
+                    Como habiamos hablando antes, esto nos permite que si tenemos
+                    una gran cantidad de entidades con atributos comunes podemos 
+                    crear una entidad general y hacer que las demás hereden de ella,
+                    con esto también propiciamos que nuestras entidades que heredan 
+                    se puedan especializaciar.
+
+
+                \item
+                    \textbf{Restricciones}
+                        Tambien es común que se les conozca como superclass constraint
+
+                        \begin{itemize}
+                            \item Entidades Disconjuntas
+                            \item Entidades Superpuestas
+                        \end{itemize}
+
+                \clearpage
+
+
+                \item
+                    \textbf{Discriminadores de Superentidad}
+
+                    Un discriminador de entidades es un atributo que indica el subtipo
+                    de una entidad.
+
+                    Es decir podemos indicar con este diagrama si las divisiones que hacemos
+                    son parciales (es decir, es posible que una instancia de la sueprclase
+                    pueda existir sin tener que ser parte de una subentidad) o total
+                    en la que decimos que cualquier instancia tiene que pertencer a alguna
+                    subentidad
+
+                    \begin{figure}[h]
+                        \centering
+                        \includegraphics[width=0.30\textwidth]{EERD0}
+                        \includegraphics[width=0.30\textwidth]{EERD1}
+                    \end{figure}
+
+            \end{itemize}
 
 
 
@@ -951,27 +1063,9 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        % ==============================================
-        % =========      SISTEMA RELACIONAL     ========
-        % ==============================================
+        % ========================================================
+        % ============    SISTEMA RELACIONAL     =================
+        % ========================================================
         \clearpage
         \section{Sistema Relacional}
 
@@ -1070,6 +1164,141 @@
             con consultas SQL incorporadas que acceden a los datos de la base de datos
 
             Los programas de aplicación son programas que se utilizan para interactuar con la base de datos de esta manera.
+
+
+
+
+
+
+
+
+% //////////////////////////////////////////////////////////////////////////////////////////////////////////
+% ///////////////////////////////////         PARTE PRACTICA               /////////////////////////////////
+% //////////////////////////////////////////////////////////////////////////////////////////////////////////
+\part{Parte Practica}
+\clearpage
+
+
+    % ===============================================================================
+    % ===================        QUERIES EN SQL                ======================
+    % ===============================================================================
+    \chapter{Queries en SQL}
+    \clearpage
+
+        % ========================================
+        % =========   SELECT FROM    =============
+        % ========================================
+        \section{SELECT FROM}
+
+            Empecemos por la sentencia más básica para un Query en SQL:
+
+            \begin{lstlisting}[language=SQL, gobble=16]
+                SELECT FielName FROM TableName;
+            \end{lstlisting}
+
+            Ahora empecemos por aquí:
+            \subsection{Distint vs All}
+            \begin{itemize}
+                \item Distint (Default):
+                    Esta solo muestra solo los atributos diferentes
+
+                    \begin{lstlisting}[language=SQL, gobble=24]
+                        SELECT DISTINT FielName FROM TableName;
+                    \end{lstlisting}
+                \item All:
+                    Esta muestra todos los atributos, incluso duplicados
+                    \begin{lstlisting}[language=SQL, gobble=24]
+                        SELECT ALL FielName FROM TableName;
+                    \end{lstlisting}
+            \end{itemize}
+
+
+
+        % ========================================
+        % =========   COUNT , AVE, SUM  ==========
+        % ========================================
+        \section{Funciones de Agregación}
+
+            Las funciones de agregación son funciones que toman una colección
+            como entrada y regresan un simple valor. SQL ofrece estas 5 funciones
+            por default:
+
+            \begin{itemize}
+                \item \Quote{AVG()}: Promedio
+                \item \Quote{MIN()}: Minimo
+                \item \Quote{MAX()}: Máximo
+                \item \Quote{COUNT()}: Cuenta la cantidad 
+                \item \Quote{SUM()}: Suma todo el resultado
+            \end{itemize}
+
+
+
+
+
+        % ========================================
+        % ============     WHERE   ===============
+        % ========================================
+        \clearpage
+        \section{WHERE}
+
+            Esta nos permite seleccionar solo las filas en el resultado del quey
+            que satisface nuestros criterios.
+
+            \begin{lstlisting}[language=SQL, gobble=16]
+                SELECT FielName FROM TableName
+                    WHERE
+                        (TableName.Thing1 < Something) AND
+                        (TableName.Thing2 = "Some Strings");
+            \end{lstlisting}
+
+            Tenemos a nuestra dispoción los siguientes comparadores:
+            \begin{itemize}
+                \item Lógicos: AND, OR, NOT
+                \item Aritmeticos: <, >, <=, >=, =, <>
+            \end{itemize}
+
+
+
+        % ========================================
+        % ============   STRINGS   ===============
+        % ========================================
+        \section{Comparación de Strings}
+            
+            Podemos comparar strings gracias a lo que conocemos como comodínes usando
+            el comando \Quote{LIKE}
+            \begin{itemize}
+                \item \Quote{\%}: Que sirve como comodín para cualquier cantidad de caracteres 
+                \item \Quote{\_}: Que sirve como comodín para un caracter 
+            \end{itemize}
+
+
+        % ========================================
+        % ========   ORDEN DE TUPLAS   ===========
+        % ========================================
+        \section{Orden de las Tuplas}
+
+            Podemos controlar el orden en que se nos retornan las tuplas del query que estamos
+            haciendo muy facilmente con la instructiva ORDER BY.
+
+            Por default se usa la opción \Quote{ASC} que las ordena de manera ascendente
+            mientras que \Quote{DESC} la ordena de manera descendente.
+
+            Por default esta se coloca la última línea de manera implicita:
+            \begin{lstlisting}[language=SQL, gobble=16]
+                SELECT DISTINT FielName1, FielName2, FielName3 FROM TableName
+                    ORDER BY FielName1 ASC, FielName2 ASC, FielName3 ASC;
+            \end{lstlisting}
+
+            También podemos simplemente poner el número en que las pusimos para 
+            indicar el orden:
+
+            \begin{lstlisting}[language=SQL, gobble=16]
+                SELECT DISTINT FielName1, FielName2, FielName3 FROM TableName
+                    ORDER BY 1,2, 3;
+            \end{lstlisting}
+
+
+
 
 \end{document}
 
