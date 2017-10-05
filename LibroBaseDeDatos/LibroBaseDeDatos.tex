@@ -1298,7 +1298,69 @@
             \end{lstlisting}
 
 
+    % ===============================================================================
+    % ===================        QUERIES EN SQL                ======================
+    % ===============================================================================
+    \section{Views en SQL}
 
+
+        En teoría de bases de datos, una vista es una consulta que se presenta como una tabla (virtual)
+        a partir de un conjunto de tablas en una base de datos relacional.
+
+        Las vistas tienen la misma estructura que una tabla: filas y columnas.
+        La única diferencia es que sólo \textbf{se almacena de ellas la definición, no los datos}.
+        Los cambios aplicados a los datos en una tabla se reflejan en los datos mostrados en invocaciones
+        posteriores de la vista.
+        En algunas bases de datos NoSQL, las vistas son la única forma de consultar datos.
+
+        Los datos que se recuperan mediante una consulta a una vista se presentarán igual que los de una tabla.
+
+        Una vista se crea a través de una expresión de consulta (una sentencia SELECT) que la calcula y que puede
+        realizarse sobre una o más tablas.
+
+
+        % ========================================
+        % =========     VENTAJAS     =============
+        % ========================================
+        \subsection{Ventajas}
+
+            Las vistas pueden ofrecer ventajas sobre las tablas:
+
+            \begin{itemize}
+
+                \item
+                    Las vistas pueden representar un subconjunto de los datos contenidos en una tabla.
+                    En consecuencia, una vista puede limitar el grado de exposición a las tablas al mundo exterior:
+                    un usuario dado puede tener permiso para consultar la vista, mientras que se deniega el acceso
+                    al resto de la tabla base.
+
+                \item
+                    Las vistas pueden ocultar la complejidad de los datos.
+                    Por ejemplo, una vista podría aparecer como Sales2000 o Sales2001, particionando
+                    de forma transparente la tabla subyacente real.
+
+                \item 
+                    Las vistas cuestan muy poco espacio para almacenar; la base de datos contiene sólo
+                    la definición de una vista, no una copia de todos los datos que presenta.
+
+            \end{itemize}
+
+
+
+        % ========================================
+        % =========    SINTAXIS      =============
+        % ========================================
+        \subsection{Sintaxis}
+
+            Empecemos por la sentencia general de las vistas:
+
+            \begin{lstlisting}[language=SQL, gobble=16]
+                CREATE VIEW ViewName AS
+                    SELECT FielName
+                        FROM TableName
+                        WHERE Conditions
+                        ORDER BY FielName; 
+            \end{lstlisting}
 
 \end{document}
 

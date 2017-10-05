@@ -92,6 +92,8 @@ CREATE VIEW V8 AS
         FROM producto p
         ORDER BY 2, 1; 
 
+
+
 #9: Nombre del Producto y su Marca
 CREATE VIEW V9 AS
     SELECT
@@ -100,7 +102,9 @@ CREATE VIEW V9 AS
         FROM producto p
         ORDER BY 2, 1; 
 
-#10: Nombre del Cliente, Email y su género
+
+
+#10: Nombre del Cliente, Email y su genero
 CREATE VIEW V10 AS
     SELECT
         c.nombre    AS Cliente, 
@@ -110,6 +114,8 @@ CREATE VIEW V10 AS
         c.sexo      AS Sexo 
         FROM cliente c
         ORDER BY 2; 
+
+
 
 #11: Nombre del Cliente y su Salario
 CREATE VIEW V11 AS
@@ -151,6 +157,8 @@ SELECT
         V4.Cliente = V10.Cliente        
     ORDER BY V4.Apellido1;
 
+
+
 #3: Clientes que ganan entre 6k y 6.5k, incluir sucursales
 SELECT
     V11.*, V4.Sucursal
@@ -162,6 +170,8 @@ SELECT
         V4.Cliente = V11.Cliente        
     ORDER BY V11.Salario, V11.Apellido1;
 
+
+
 #4: Productos de Deporte
 SELECT
     V2.*
@@ -169,6 +179,8 @@ SELECT
     WHERE 
         V2.Categoria like "Depor%"
     ORDER BY V2.producto;
+
+
 
 #5: Clientes que pagaron en 12 Marzo de 2010, incluir de la Sucursal
 SELECT
@@ -180,4 +192,3 @@ SELECT
         V4.Cliente   = V7.Cliente          AND
         V7.FechaPago = "2010-03-12"
     ORDER BY V7.Apellido1;
-
