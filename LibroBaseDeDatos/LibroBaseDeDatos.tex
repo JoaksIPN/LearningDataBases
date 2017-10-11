@@ -252,8 +252,6 @@
 \clearpage
 
 
-
-
     % ===============================================================================
     % ===================           DEFINICIONES               ======================
     % ===============================================================================
@@ -267,8 +265,6 @@
             
             Son un conjunto de datos, donde definio a un dato como cualquier información
             que sea váliosa.
-
-
 
 
         % ==============================================
@@ -1042,21 +1038,19 @@
 
 
 
-    % ===============================================================================
-    % ===================        SISTEMA RELACIONAL         =========================
-    % ===============================================================================
-    \chapter{Modelos de Datos}
-
-
-        
+    % ========================================================
+    % ========    MODELO EXTENDIDO ENTIDAD RELACION    =======
+    % ========================================================
+    \clearpage
+    \chapter{Sistema Entidad-Relación Extendido}
 
 
 
-        % ========================================================
-        % ========    MODELO EXTENDIDO ENTIDAD RELACION    =======
-        % ========================================================
+        % =========================================
+        % ========    INTRODUCCIÓN    =============
+        % =========================================
         \clearpage
-        \section{Sistema Entidad-Relación Extendido}
+        \section{Introducción}
 
             \begin{wrapfigure}{r}{0.18\textwidth}
                 \centering
@@ -1069,85 +1063,94 @@
 
             Todos los conceptos de un diagrama E-R están incluidos en el modelo EE-R.
 
-            Vamos a ver las diferencias más importantes con respecto a nuestro clásico amigo
-            el diagrama entidad relación.
+            Vamos a ver las diferencias más importantes con respecto a nuestro clásico
+            amigo el diagrama entidad relación.
 
-            \begin{itemize}
-                \item
-                    \textbf{Herencia: Super y Subclases}
+        % =========================================
+        % ========    CARACTERISTICAS    ==========
+        % =========================================
+        \begin{itemize}
+            \item
+                \textbf{Herencia: Super y Subclases}
 
-                    Como el nombre sugiere, podemos tener entidades que consideramos padres
-                    y que heredan a otras entidades hijas.
+                Como el nombre sugiere, podemos tener entidades que consideramos padres
+                y que heredan a otras entidades hijas.
 
-                    Por ejemplo podemos podemos tener una entidad empleado puede tener
-                    subentidades que se dividen por el trabajo que hacen, por ejemplo
-                    diseñadores, gerentes y ayudantes.
+                Por ejemplo podemos podemos tener una entidad empleado puede tener
+                subentidades que se dividen por el trabajo que hacen, por ejemplo
+                diseñadores, gerentes y ayudantes.
 
-                    Todas nuestras subentidades van a heredar las propiedades o atributos
-                    de nuestra superentidad.
+                Todas nuestras subentidades van a heredar las propiedades o atributos
+                de nuestra superentidad.
 
-                    Esto nos permite que nuestra entidad padre sea una idea general y que
-                    nuestras subclases sean especializaciones de la misma, por esto decimos
-                    que esta clase de diagramas permite la especialización.
-
-
-                    Es también importante remarcar que alguna de nuestras entidades
-                    puede heredar de una o mas entidades
-
-
-                \item
-                    \textbf{Generalización y Especialización}
-
-                    Como habiamos hablando antes, esto nos permite que si tenemos
-                    una gran cantidad de entidades con atributos comunes podemos 
-                    crear una entidad general y hacer que las demás hereden de ella,
-                    con esto también propiciamos que nuestras entidades que heredan 
-                    se puedan especializaciar.
+                Esto nos permite que nuestra entidad padre sea una idea general y que
+                nuestras subclases sean especializaciones de la misma, por esto decimos
+                que esta clase de diagramas permite la especialización.
 
 
-                \item
-                    \textbf{Restricciones}
-                        Tambien es común que se les conozca como superclass constraint
-
-                        \begin{itemize}
-                            \item Entidades Disconjuntas
-                            \item Entidades Superpuestas
-                        \end{itemize}
-
-                \clearpage
+                Es también importante remarcar que alguna de nuestras entidades
+                puede heredar de una o mas entidades
 
 
-                \item
-                    \textbf{Discriminadores de Superentidad}
+            \item
+                \textbf{Generalización y Especialización}
 
-                    Un discriminador de entidades es un atributo que indica el subtipo
-                    de una entidad.
-
-                    Es decir podemos indicar con este diagrama si las divisiones que hacemos
-                    son parciales (es decir, es posible que una instancia de la sueprclase
-                    pueda existir sin tener que ser parte de una subentidad) o total
-                    en la que decimos que cualquier instancia tiene que pertencer a alguna
-                    subentidad
-
-                    \begin{figure}[h]
-                        \centering
-                        \includegraphics[width=0.30\textwidth]{EERD0}
-                        \includegraphics[width=0.30\textwidth]{EERD1}
-                    \end{figure}
-
-            \end{itemize}
+                Como habiamos hablando antes, esto nos permite que si tenemos
+                una gran cantidad de entidades con atributos comunes podemos 
+                crear una entidad general y hacer que las demás hereden de ella,
+                con esto también propiciamos que nuestras entidades que heredan 
+                se puedan especializaciar.
 
 
+            \clearpage
 
+            \item
+                \textbf{Restricciones}
+                    Tambien es común que se les conozca como superclass constraint
 
+                    \begin{itemize}
+                        \item Entidades Disconjuntas
+                        \item Entidades Superpuestas
+                    \end{itemize}
+
+            \item
+                \textbf{Discriminadores de Superentidad}
+
+                Un discriminador de entidades es un atributo que indica el subtipo
+                de una entidad.
+
+                Es decir podemos indicar con este diagrama si las divisiones que hacemos
+                son parciales (es decir, es posible que una instancia de la sueprclase
+                pueda existir sin tener que ser parte de una subentidad) o total
+                en la que decimos que cualquier instancia tiene que pertencer a alguna
+                subentidad
+
+                \begin{figure}[h]
+                    \centering
+                    \includegraphics[width=0.30\textwidth]{EERD0}
+                    \includegraphics[width=0.30\textwidth]{EERD1}
+                \end{figure}
+
+        \end{itemize}
 
 
 
-        % ========================================================
-        % ============    SISTEMA RELACIONAL     =================
-        % ========================================================
+
+
+
+
+    % ===============================================================================
+    % ===================        SISTEMA RELACIONAL         =========================
+    % ===============================================================================
+    \chapter{Sistema Relacional}
+
+
+        % ==============================================
+        % ===============   INTRODUCCION     ===========
+        % ==============================================
         \clearpage
         \section{Sistema Relacional}
+
 
             Las bases de datos relacionales facilitan evitar la duplicidad de información
             e inconsistencias de datos.
@@ -1177,35 +1180,35 @@
 
 
 
-            % ==============================================
-            % =========      RELACIONES            =========
-            % ==============================================
-            \clearpage
-            \subsection{Relaciones}
+        % ==============================================
+        % =========      RELACIONES            =========
+        % ==============================================
+        \clearpage
+        \section{Relaciones}
 
-                Para evitar la redundancia de datos la clave esta en crear diversas tablas
-                e ir relacionandolas.
+            Para evitar la redundancia de datos la clave esta en crear diversas tablas
+            e ir relacionandolas.
 
-                Para lograr esto tenemos que crear relaciones, y es imposible hablar de relaciones
-                sin hablar de llaves:
-
-
-                \begin{itemize}
-                    \item
-                        \textbf{Primary Key:}
-                        La idea de una llave primaria es crear un atributo que tiene, tiene pero
-                        tiene que ser único y es recomendable que casi no cambie.
+            Para lograr esto tenemos que crear relaciones, y es imposible hablar de relaciones
+            sin hablar de llaves:
 
 
-                    \item
-                        \textbf{Foreign Key:}
-                        La idea de una llave secundaria es crear un atributo que tiene que alguna otra
-                        tabla sea la llave primaria. Eso es todo.
+            \begin{itemize}
+                \item
+                    \textbf{Primary Key:}
+                    La idea de una llave primaria es crear un atributo que tiene, tiene pero
+                    tiene que ser único y es recomendable que casi no cambie.
 
-                \end{itemize}
+
+                \item
+                    \textbf{Foreign Key:}
+                    La idea de una llave secundaria es crear un atributo que tiene que alguna otra
+                    tabla sea la llave primaria. Eso es todo.
+
+            \end{itemize}
 
 
- 
+
 
 
 
@@ -1223,6 +1226,20 @@
 
 
 
+
+
+
+
+
+
+
+% //////////////////////////////////////////////////////////////////////////////////////////////////////////
+% ///////////////////////////////////         PARTE PRACTICA               /////////////////////////////////
+% //////////////////////////////////////////////////////////////////////////////////////////////////////////
+\part{Parte Practica}
+\clearpage
+
+    
     % ===============================================================================
     % =========================           S Q L                ======================
     % ===============================================================================
@@ -1245,18 +1262,6 @@
 
             Los programas de aplicación son programas que se utilizan para interactuar con la base de datos de esta manera.
 
-
-
-
-
-
-
-
-% //////////////////////////////////////////////////////////////////////////////////////////////////////////
-% ///////////////////////////////////         PARTE PRACTICA               /////////////////////////////////
-% //////////////////////////////////////////////////////////////////////////////////////////////////////////
-\part{Parte Practica}
-\clearpage
 
 
     % ===============================================================================
