@@ -1,0 +1,33 @@
+\BOOKMARK [-1][-]{part.1}{I Parte Abstracta}{}% 1
+\BOOKMARK [0][-]{chapter.1}{Definici\363nes}{part.1}% 2
+\BOOKMARK [1][-]{section.1.1}{Repositorio de Datos}{chapter.1}% 3
+\BOOKMARK [1][-]{section.1.2}{Base de Datos}{chapter.1}% 4
+\BOOKMARK [1][-]{section.1.3}{Proposito para una Base de Datos}{chapter.1}% 5
+\BOOKMARK [1][-]{section.1.4}{Elementos de un Sistema de Base de Datos}{chapter.1}% 6
+\BOOKMARK [1][-]{section.1.5}{Abstracci\363n de los Datos}{chapter.1}% 7
+\BOOKMARK [1][-]{section.1.6}{Usuarios de una Base de Datos}{chapter.1}% 8
+\BOOKMARK [2][-]{subsection.1.6.1}{Usuarios Finales}{section.1.6}% 9
+\BOOKMARK [1][-]{section.1.7}{DML vs DDL}{chapter.1}% 10
+\BOOKMARK [1][-]{section.1.8}{Arquitectura del Sistema Gestor}{chapter.1}% 11
+\BOOKMARK [1][-]{section.1.9}{Arquitecturas de las Bases de Datos}{chapter.1}% 12
+\BOOKMARK [0][-]{chapter.2}{Modelos de Datos}{part.1}% 13
+\BOOKMARK [1][-]{section.2.1}{Sistema Entidad-Relaci\363n}{chapter.2}% 14
+\BOOKMARK [2][-]{subsection.2.1.1}{Entidades}{section.2.1}% 15
+\BOOKMARK [2][-]{subsection.2.1.2}{Relaciones}{section.2.1}% 16
+\BOOKMARK [2][-]{subsection.2.1.3}{Atributos}{section.2.1}% 17
+\BOOKMARK [1][-]{section.2.2}{Sistema Entidad-Relaci\363n Extendido}{chapter.2}% 18
+\BOOKMARK [1][-]{section.2.3}{Sistema Relacional}{chapter.2}% 19
+\BOOKMARK [2][-]{subsection.2.3.1}{Relaciones}{section.2.3}% 20
+\BOOKMARK [0][-]{chapter.3}{SQL}{part.1}% 21
+\BOOKMARK [1][-]{section.3.1}{SQL como Lenguaje}{chapter.3}% 22
+\BOOKMARK [-1][-]{part.2}{II Parte Practica}{}% 23
+\BOOKMARK [0][-]{chapter.4}{Queries en SQL}{part.2}% 24
+\BOOKMARK [1][-]{section.4.1}{SELECT FROM}{chapter.4}% 25
+\BOOKMARK [2][-]{subsection.4.1.1}{Distint vs All}{section.4.1}% 26
+\BOOKMARK [1][-]{section.4.2}{Funciones de Agregaci\363n}{chapter.4}% 27
+\BOOKMARK [1][-]{section.4.3}{WHERE}{chapter.4}% 28
+\BOOKMARK [1][-]{section.4.4}{Comparaci\363n de Strings}{chapter.4}% 29
+\BOOKMARK [1][-]{section.4.5}{Orden de las Tuplas}{chapter.4}% 30
+\BOOKMARK [1][-]{section.4.6}{Views en SQL}{chapter.4}% 31
+\BOOKMARK [2][-]{subsection.4.6.1}{Ventajas}{section.4.6}% 32
+\BOOKMARK [2][-]{subsection.4.6.2}{Sintaxis}{section.4.6}% 33

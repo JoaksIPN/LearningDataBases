@@ -847,6 +847,14 @@
                     gráfica del Modelo ER.
             \end{itemize}
 
+            \begin{figure}[h]
+                \centering
+                \includegraphics[width=0.50\textwidth]{ER-Diagram}
+                \caption{Ejemplo de un Diagrama Entidad-Relación}
+            \end{figure}
+
+
+
 
             % ==============================================
             % =========      ENTIDADES             =========
@@ -866,9 +874,9 @@
 
                 \begin{figure}[h]
                     \centering
-                    \includegraphics[width=0.30\textwidth]{Entidad0}
-                    \includegraphics[width=0.30\textwidth]{Entidad1}
-                    \includegraphics[width=0.30\textwidth]{Entidad2}
+                    \includegraphics[width=0.30\textwidth]{Entidad}
+                    \includegraphics[width=0.30\textwidth]{EntidadDebil}
+                    \includegraphics[width=0.30\textwidth]{EntidadAsociativa}
                 \end{figure}
 
 
@@ -885,12 +893,35 @@
                             \item Usa una relación identificada para asociar una entidad fuerte con una debíl
                         \end{itemize}
 
+                        \begin{figure}[h]
+                            \centering
+                            \includegraphics[width=0.80\textwidth]{EjemploEntidadDebil}
+                        \end{figure}
+
+                    \clearpage
 
                     \item Asociativa: \\
                         Se usa cuando tienes una relación y resulta que quieres usar esta relación
                         como conexión (por ejemplo la relación entre alumno y clase) así que haces
                         esa relación una entidad asociativa (por ejemplo para asociar esta nueva
                         entidad con profesor).
+
+                        Relación Identificada: Es la relación entre una entidad débil y el
+                        identificador propio.
+
+                        \begin{figure}[h]
+                            \centering
+                            \includegraphics[width=0.80\textwidth]{EjemploEntidadAsociativa}
+                            \caption{Ejemplo}
+                        \end{figure}
+
+                        \vspace{5em}
+
+                        \begin{figure}[h]
+                            \centering
+                            \includegraphics[width=0.80\textwidth]{EjemploEntidadAsociativa2}
+                            \caption{Otro Ejemplo}
+                        \end{figure}
                 \end{itemize}
 
 
@@ -910,23 +941,58 @@
 
                 \begin{figure}[h]
                     \centering
-                    \includegraphics[width=0.40\textwidth]{Relacion0}
-                    \includegraphics[width=0.40\textwidth]{Relacion1}
+                    \includegraphics[width=0.30\textwidth]{Relacion}
+                    \includegraphics[width=0.30\textwidth]{RelacionIdentificada}
                 \end{figure}
 
 
             % ==============================================
             % =========      CARDINALIDAD          =========
             % ==============================================
-            \subsection{Cardinalidad}
+            \subsubsection{Cardinalidad}
 
                 Nos dice la cantidad de atributos que se relacionan.
 
 
                 \begin{figure}[h]
                     \centering
-                    \includegraphics[width=0.80\textwidth]{Cardinalidad}
+                    \includegraphics[width=0.75\textwidth]{Cardinalidad}
                 \end{figure}
+
+            % ==============================================
+            % =======   ATRIBUTOS EN RELACION      =========
+            % ==============================================
+            \clearpage
+            \subsubsection{Atributos en las Relaciones}
+
+                Atributos en relaciones: Los atributos pueden ser asociados con relaciones
+                como una entidad.
+
+                En este caso, se requiere almacenar la Fecha (mes y año) cuando un empleado
+                completa un curso.
+
+
+                \begin{figure}[h]
+                    \centering
+                    \includegraphics[width=0.80\textwidth]{RelacionConAtributos}
+                \end{figure}
+
+            % ==============================================
+            % =======     GRADO DE UNA RELACIÓN    =========
+            % ==============================================
+            \subsubsection{Grado de una Relación}
+
+                El número de entidades que participan en una relación.
+                Las Relaciones de acuerdo al grado de relación
+
+                \textbf{Relaciones Unarias: }
+
+                    Cuando una única relación interviene en la asociación
+
+                    \begin{figure}[h]
+                        \includegraphics[width=0.20\textwidth]{RelacionUnaria}
+                        \includegraphics[width=0.20\textwidth]{RelacionUnaria2}
+                    \end{figure}
 
 
             % ==============================================
@@ -937,32 +1003,39 @@
 
                 Son las propiedades o características de una entidad
                 \begin{itemize}
-                    \item Identificador:
-                        Es aquel atributo que nos permite identificar de forma unica cada una de las
-                        instancias de la entidad.
-
-                        \includegraphics[width=0.20\textwidth]{Atributos1}
 
                     \item Simples:
                         Son aquelllas propiedades atomicas que ya no se pueden subdividir
                         
-                        \includegraphics[width=0.20\textwidth]{Atributos0}
+                        \includegraphics[width=0.20\textwidth]{Atributo}
 
+                    \item Identificador:
+                        Es aquel atributo que nos permite identificar de forma unica cada una de las
+                        instancias de la entidad.
+
+                        \includegraphics[width=0.20\textwidth]{AtributoID}
+
+                    \item Identificador Parcial:
+
+                        \includegraphics[width=0.20\textwidth]{AtributoIDParcial}
 
                     \item Derivado:
-                        Es aquel que se puede calcular con la información que ya tenemos
-                        como la edad con la fecha de nacimiento
+                        Es aquel atributo cuyo valor puede ser calculado a partir de
+                        otros valores de atributos (posiblemente de datos que no se
+                        encuentren en la BD's, tal como, la fecha del sistema, etc)
 
-                        \includegraphics[width=0.20\textwidth]{Atributos3}
+                        \includegraphics[width=0.20\textwidth]{AtributoDerivado}
 
                     \item Multivalor:
                         Aquellos que tienen mas de un valor
 
-                        \includegraphics[width=0.20\textwidth]{Atributos4}
+                        \includegraphics[width=0.20\textwidth]{AtributoMultiValor}
 
 
                     \item Compuestos :
-                        Aquellos que estan formados por varios sub atributos
+                        Aquellos que estan formados por varios subatributos
+
+                        \includegraphics[width=0.30\textwidth]{AtributoCompuesto}
 
                 \end{itemize}
 
