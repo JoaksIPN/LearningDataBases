@@ -799,18 +799,18 @@
 
 
 
-
     % ===============================================================================
-    % ===================        SISTEMA RELACIONAL         =========================
+    % ====================     MODELO ENTIDAD RELACION      =========================
     % ===============================================================================
-    \chapter{Modelos de Datos}
+    \clearpage
+    \chapter{Sistema Entidad-Relación}
 
 
-        % =========================================================
-        % =========     MODELO ENTIDAD RELACION      ==============
-        % =========================================================
+        % ==============================================
+        % ================  QUE ES   ===================
+        % ==============================================
         \clearpage
-        \section{Sistema Entidad-Relación}
+        \section{¿Qué es?}
 
             Fue creado por Peter Pin‐Shan Chen en 1976, llamado \Quote{The Entity Relationship
             Model Toward Unified View of Data}
@@ -855,193 +855,200 @@
 
 
 
+        % ==============================================
+        % =========          ENTIDADES         =========
+        % ==============================================
+        \clearpage
+        \section{Entidades}
+                
+            Son objetos que existen en el mundo real y que son distingubles
+            (gracias a sus características) de otros objetos.
 
-            % ==============================================
-            % =========      ENTIDADES             =========
-            % ==============================================
-            \clearpage
-            \subsection{Entidades}
-                    
-                Son objetos que existen en el mundo real y que son distingubles
-                (gracias a sus características) de otros objetos.
+            El tipo de entidad es el esquema que tiene la entidad en la base de datos,
+            es decir son todos los atributos o características que definien a la entidad.
 
-                El tipo de entidad es el esquema que tiene la entidad en la base de datos,
-                es decir son todos los atributos o características que definien a la entidad.
-
-                Piensa en las entidades como sustantivos.
-                Ejemplos: cliente, estudiante, automóvil o producto. 
-
-
-                \begin{figure}[h]
-                    \centering
-                    \includegraphics[width=0.30\textwidth]{Entidad}
-                    \includegraphics[width=0.30\textwidth]{EntidadDebil}
-                    \includegraphics[width=0.30\textwidth]{EntidadAsociativa}
-                \end{figure}
+            Piensa en las entidades como sustantivos.
+            Ejemplos: cliente, estudiante, automóvil o producto. 
 
 
-                \begin{itemize}
-                    \item Fuerte:\\
-                        Es aquella entidad cuya existencia no depende de otras entidades.
-                    \item 
-                        Debíl:\\
-                        Es aquella entidad cuya existencia depende de otras entidades.
-                        \begin{itemize}
-                            \item Esta depende de de una o varias entidades fuertes
-                            \item Una entidad debíl jamas se debe asociar con una entidad debíl
-                            \item Una entidad debíl no tiene identificador propio, pero si parciales
-                            \item Usa una relación identificada para asociar una entidad fuerte con una debíl
-                        \end{itemize}
-
-                        \begin{figure}[h]
-                            \centering
-                            \includegraphics[width=0.80\textwidth]{EjemploEntidadDebil}
-                        \end{figure}
-
-                    \clearpage
-
-                    \item Asociativa: \\
-                        Se usa cuando tienes una relación y resulta que quieres usar esta relación
-                        como conexión (por ejemplo la relación entre alumno y clase) así que haces
-                        esa relación una entidad asociativa (por ejemplo para asociar esta nueva
-                        entidad con profesor).
-
-                        Relación Identificada: Es la relación entre una entidad débil y el
-                        identificador propio.
-
-                        \begin{figure}[h]
-                            \centering
-                            \includegraphics[width=0.80\textwidth]{EjemploEntidadAsociativa}
-                            \caption{Ejemplo}
-                        \end{figure}
-
-                        \vspace{5em}
-
-                        \begin{figure}[h]
-                            \centering
-                            \includegraphics[width=0.80\textwidth]{EjemploEntidadAsociativa2}
-                            \caption{Otro Ejemplo}
-                        \end{figure}
-                \end{itemize}
+            \begin{figure}[h]
+                \centering
+                \includegraphics[width=0.30\textwidth]{Entidad}
+                \includegraphics[width=0.30\textwidth]{EntidadDebil}
+                \includegraphics[width=0.30\textwidth]{EntidadAsociativa}
+            \end{figure}
 
 
-
-            % ==============================================
-            % =========      RELACIONES            =========
-            % ==============================================
-            \clearpage
-            \subsection{Relaciones}
-                    
-                Esto es como las entidades actúan unas sobre otras o están asociadas entre sí.
-                Piensa en las relaciones como verbos.
-
-                Por ejemplo, el estudiante nombrado puede registrarse para un curso.
-                Las dos entidades serían el estudiante y el curso, y la relación representada es
-                el acto de inscribirse, conectando las dos entidades de esa manera. 
-
-                \begin{figure}[h]
-                    \centering
-                    \includegraphics[width=0.30\textwidth]{Relacion}
-                    \includegraphics[width=0.30\textwidth]{RelacionIdentificada}
-                \end{figure}
-
-
-            % ==============================================
-            % =========      CARDINALIDAD          =========
-            % ==============================================
-            \subsubsection{Cardinalidad}
-
-                Nos dice la cantidad de atributos que se relacionan.
-
-
-                \begin{figure}[h]
-                    \centering
-                    \includegraphics[width=0.75\textwidth]{Cardinalidad}
-                \end{figure}
-
-            % ==============================================
-            % =======   ATRIBUTOS EN RELACION      =========
-            % ==============================================
-            \clearpage
-            \subsubsection{Atributos en las Relaciones}
-
-                Atributos en relaciones: Los atributos pueden ser asociados con relaciones
-                como una entidad.
-
-                En este caso, se requiere almacenar la Fecha (mes y año) cuando un empleado
-                completa un curso.
-
-
-                \begin{figure}[h]
-                    \centering
-                    \includegraphics[width=0.80\textwidth]{RelacionConAtributos}
-                \end{figure}
-
-            % ==============================================
-            % =======     GRADO DE UNA RELACIÓN    =========
-            % ==============================================
-            \subsubsection{Grado de una Relación}
-
-                El número de entidades que participan en una relación.
-                Las Relaciones de acuerdo al grado de relación
-
-                \textbf{Relaciones Unarias: }
-
-                    Cuando una única relación interviene en la asociación
+            \begin{itemize}
+                \item \textbf{Fuerte:}\\
+                    Es aquella entidad cuya existencia no depende de otras entidades.
+                \item 
+                    \textbf{Debíl:}\\
+                    Es aquella entidad cuya existencia depende de otras entidades.
+                    \begin{itemize}
+                        \item Esta depende de de una o varias entidades fuertes
+                        \item Una entidad debíl jamas se debe asociar con una entidad debíl
+                        \item Una entidad debíl no tiene identificador propio, pero si parciales
+                        \item Usa una relación identificada para asociar una entidad fuerte con una debíl
+                    \end{itemize}
 
                     \begin{figure}[h]
-                        \includegraphics[width=0.20\textwidth]{RelacionUnaria}
-                        \includegraphics[width=0.20\textwidth]{RelacionUnaria2}
+                        \centering
+                        \includegraphics[width=0.80\textwidth]{EjemploEntidadDebil}
                     \end{figure}
 
+                \clearpage
 
-            % ==============================================
-            % =========      ATRIBUTOS             =========
-            % ==============================================
-            \clearpage
-            \subsection{Atributos}
+                \item \textbf{Asociativa:}\\
+                    Se usa cuando tienes una relación y resulta que quieres usar esta relación
+                    como conexión (por ejemplo la relación entre alumno y clase) así que haces
+                    esa relación una entidad asociativa (por ejemplo para asociar esta nueva
+                    entidad con profesor).
 
-                Son las propiedades o características de una entidad
-                \begin{itemize}
+                    Relación Identificada: Es la relación entre una entidad débil y el
+                    identificador propio.
 
-                    \item Simples:
-                        Son aquelllas propiedades atomicas que ya no se pueden subdividir
-                        
-                        \includegraphics[width=0.20\textwidth]{Atributo}
+                    \begin{figure}[h]
+                        \centering
+                        \includegraphics[width=0.80\textwidth]{EjemploEntidadAsociativa}
+                        \caption{Ejemplo}
+                    \end{figure}
 
-                    \item Identificador:
-                        Es aquel atributo que nos permite identificar de forma unica cada una de las
-                        instancias de la entidad.
+                    \vspace{5em}
 
-                        \includegraphics[width=0.20\textwidth]{AtributoID}
-
-                    \item Identificador Parcial:
-
-                        \includegraphics[width=0.20\textwidth]{AtributoIDParcial}
-
-                    \item Derivado:
-                        Es aquel atributo cuyo valor puede ser calculado a partir de
-                        otros valores de atributos (posiblemente de datos que no se
-                        encuentren en la BD's, tal como, la fecha del sistema, etc)
-
-                        \includegraphics[width=0.20\textwidth]{AtributoDerivado}
-
-                    \item Multivalor:
-                        Aquellos que tienen mas de un valor
-
-                        \includegraphics[width=0.20\textwidth]{AtributoMultiValor}
-
-
-                    \item Compuestos :
-                        Aquellos que estan formados por varios subatributos
-
-                        \includegraphics[width=0.30\textwidth]{AtributoCompuesto}
-
-                \end{itemize}
+                    \begin{figure}[h]
+                        \centering
+                        \includegraphics[width=0.80\textwidth]{EjemploEntidadAsociativa2}
+                        \caption{Otro Ejemplo}
+                    \end{figure}
+            \end{itemize}
 
 
 
+        % ==============================================
+        % =========      RELACIONES            =========
+        % ==============================================
+        \clearpage
+        \section{Relaciones}
+                
+            Esto es como las entidades actúan unas sobre otras o están asociadas entre sí.
+            Piensa en las relaciones como verbos.
 
+            Por ejemplo, el estudiante nombrado puede registrarse para un curso.
+            Las dos entidades serían el estudiante y el curso, y la relación representada es
+            el acto de inscribirse, conectando las dos entidades de esa manera. 
+
+            \begin{figure}[h]
+                \centering
+                \includegraphics[width=0.30\textwidth]{Relacion}
+                \includegraphics[width=0.30\textwidth]{RelacionIdentificada}
+            \end{figure}
+
+
+        % ==============================================
+        % =========      CARDINALIDAD          =========
+        % ==============================================
+        \subsection{Cardinalidad}
+
+            Nos dice la cantidad de atributos que se relacionan.
+
+
+            \begin{figure}[h]
+                \centering
+                \includegraphics[width=0.75\textwidth]{Cardinalidad}
+            \end{figure}
+
+        % ==============================================
+        % =======   ATRIBUTOS EN RELACION      =========
+        % ==============================================
+        \clearpage
+        \subsection{Atributos en las Relaciones}
+
+            Atributos en relaciones: Los atributos pueden ser asociados con relaciones
+            como una entidad.
+
+            En este caso, se requiere almacenar la Fecha (mes y año) cuando un empleado
+            completa un curso.
+
+
+            \begin{figure}[h]
+                \centering
+                \includegraphics[width=0.80\textwidth]{RelacionConAtributos}
+            \end{figure}
+
+        % ==============================================
+        % =======     GRADO DE UNA RELACIÓN    =========
+        % ==============================================
+        \subsection{Grado de una Relación}
+
+            El número de entidades que participan en una relación.
+            Las Relaciones de acuerdo al grado de relación
+
+            \textbf{Relaciones Unarias: }
+
+                Cuando una única relación interviene en la asociación
+
+                \begin{figure}[h]
+                    \includegraphics[width=0.20\textwidth]{RelacionUnaria}
+                    \includegraphics[width=0.20\textwidth]{RelacionUnaria2}
+                \end{figure}
+
+
+        % ==============================================
+        % =========      ATRIBUTOS             =========
+        % ==============================================
+        \clearpage
+        \section{Atributos}
+
+            Son las propiedades o características de una entidad
+            \begin{itemize}
+
+                \item \textbf{Simples:}
+                    Son aquelllas propiedades atomicas que ya no se pueden subdividir
+                    
+                    \includegraphics[width=0.20\textwidth]{Atributo}
+
+                \item \textbf{Identificador:}
+                    Es aquel atributo que nos permite identificar de forma unica cada una de las
+                    instancias de la entidad.
+
+                    \includegraphics[width=0.20\textwidth]{AtributoID}
+
+                \item \textbf{Identificador Parcial:}
+
+                    \includegraphics[width=0.20\textwidth]{AtributoIDParcial}
+
+                \item \textbf{Derivado:}
+                    Es aquel atributo cuyo valor puede ser calculado a partir de
+                    otros valores de atributos (posiblemente de datos que no se
+                    encuentren en la BD's, tal como, la fecha del sistema, etc)
+
+                    \includegraphics[width=0.20\textwidth]{AtributoDerivado}
+
+                \item \textbf{Multivalor:}
+                    Aquellos que tienen mas de un valor
+
+                    \includegraphics[width=0.20\textwidth]{AtributoMultiValor}
+
+
+                \item \textbf{Compuestos:}
+                    Aquellos que estan formados por varios subatributos
+
+                    \includegraphics[width=0.30\textwidth]{AtributoCompuesto}
+
+            \end{itemize}
+
+
+
+
+
+    % ===============================================================================
+    % ===================        SISTEMA RELACIONAL         =========================
+    % ===============================================================================
+    \chapter{Modelos de Datos}
+
+
+        
 
 
 
