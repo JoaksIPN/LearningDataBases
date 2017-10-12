@@ -1149,34 +1149,36 @@
         % ===============   INTRODUCCION     ===========
         % ==============================================
         \clearpage
-        \section{Sistema Relacional}
+        \section{Introducción}
 
+            El modelo Relacional fue introducido en 1970 por E.F. Codd.
 
-            Las bases de datos relacionales facilitan evitar la duplicidad de información
-            e inconsistencias de datos.
             La mayoría de los sistemas de bases de datos utilizados hoy en día son relacionales.
 
-            En el modelo relacional, los datos se dividen en diferentes \textbf{tables}.
+
+        % ==============================================
+        % =========   DEFINICION BASICA      ===========
+        % ==============================================
+        \clearpage
+        \section{Definiciones Básicas}
+
+            En el modelo relacional, los datos se dividen en diferentes \textbf{tablas}.
             Una tabla funciona como una matriz o una hoja de cálculo.
 
-            Normalmente, las columnas imponen un tipo de datos que pueden contener.
-            Las columnas también pueden especificar otras restricciones: si es obligatorio que las
-            filas tengan un valor en esa columna, si el valor de la columna debe ser único en todas
-            las filas y cosas así.
+            \begin{figure}[h]
+                \centering
+                \includegraphics[width=0.95\textwidth]{EjemploTabla}
+            \end{figure}
 
-            Las columnas se denominan más comúnmente atributos.
-            Si una columna sólo permite números enteros, decimos que es un campo entero.
-            Diferentes tablas utilizan diferentes tipos de campos.
+            \begin{itemize}
+                \item \textbf{Relación}: Una tabla con columnas y filas
+                \item \textbf{Atributo}: Nombre de una columna de una relación
+                \item \textbf{Dominio}: Es el conjunto de valores legales de el atributos
+                \item \textbf{Tupla}: Es una fila de una relación
+                \item \textbf{Grado de una Relación}: Es el número de atributos que contiene la relación
+                \item \textbf{Cardinalidad de una Relación}: Es el número de tuplas que contiene
+            \end{itemize}
 
-            La organización de una tabla de base de datos viene dada por sus campos y las
-            restricciones que imponen.
-
-            Todas las entradas de datos son filas y el sistema de base de datos no aceptará
-            una fila en una tabla si viola el esquema de la tabla. Esa es una gran limitación
-            del modelo relacional.
-            Cuando las características de los datos varían demasiado, la adaptación de los datos
-            a un esquema fijo puede ser problemática. Pero si está trabajando con datos de
-            estructura homogénea, un esquema fijo le ayudará a garantizar que los datos son válidos.
 
 
 
@@ -1189,38 +1191,166 @@
             Para evitar la redundancia de datos la clave esta en crear diversas tablas
             e ir relacionandolas.
 
-            Para lograr esto tenemos que crear relaciones, y es imposible hablar de relaciones
-            sin hablar de llaves:
-
+            Las relaciones tienen las siguientes características:
 
             \begin{itemize}
-                \item
-                    \textbf{Primary Key:}
-                    La idea de una llave primaria es crear un atributo que tiene, tiene pero
-                    tiene que ser único y es recomendable que casi no cambie.
-
-
-                \item
-                    \textbf{Foreign Key:}
-                    La idea de una llave secundaria es crear un atributo que tiene que alguna otra
-                    tabla sea la llave primaria. Eso es todo.
-
+                \item Cada tupla dentro de la tabla tiene que ser única
+                \item El orden de las tuplas no importa
+                \item Cada relación tiene un nombre único en la Base de Datos
+                \item Los atributos de cada tabla tienen que tener un nombre único en la tabla
+                \item No importa el orden de los atributos
+                \item Los valores de los atributos son atómicos en cada tupla, es decir,
+                    cada atributo toma un solo valor. Se dice que las relaciones están normalizadas.
             \end{itemize}
 
+            % ==============================================
+            % ==========     VALORES NULOS       ===========
+            % ==============================================
+            \subsubsection{Valores Nulos}
+
+                Cuando en una tupla un atributo es desconocido, se dice que es nulo.
+                    
+                Un nulo no representa el valor cero ni la cadena vacía, éstos son valores que
+                tienen significado.
+
+                El nulo implica ausencia de información, bien porque al insertar la tupla se 
+                desconocía el valor del atributo, o bien porque para dicha tupla el atributo no
+                tiene sentido.
+
+            % ==============================================
+            % ==========   LLAVES RELACIONES     ===========
+            % ==============================================
+            \clearpage
+            \subsection{Llaves Relaciones}
+
+                Para lograr esto tenemos que crear relaciones, y es imposible hablar de
+                relaciones sin hablar de llaves:
+
+                \begin{itemize}
+                    \item
+                        \textbf{Primary Key:}
+                        La idea de una llave primaria es crear un atributo (o un conjunto de 
+                        atributos) que tiene, tiene pero tiene que ser único y es recomendable
+                        que casi no cambie.
+
+                        Una llave compuesta es una llave primaria que consiste de más de un atributo
+
+                        \includegraphics[width=0.55\textwidth]{LlavesPrimarias}
+
+                    \item
+                        \textbf{Foreign Key:}
+                        La idea de una llave secundaria es crear un atributo (o mas comunmente
+                        varios atributos) que en alguna otra tabla sea la llave primaria. Eso es todo.
+
+                        \includegraphics[width=0.55\textwidth]{LlaveForanea}
+
+                \end{itemize}
+
+
+            % ==============================================
+            % ==========   REGLAS DE INTEGRIDAD  ===========
+            % ==============================================
+            \clearpage
+            \subsection{Reglas de Integridad}
+
+                Una vez definida la estructura de datos del modelo relacional, pasamos a estudiar
+                las reglas de integridad que los datos almacenados en dicha estructura deben
+                cumplir para garantizar que son correctos.
+
+                El definir cada atributo sobre un dominio se impone una restricción sobre el
+                conjunto de valores permitidos para cada atributo. A este tipo de restricciones
+                se les denomina restricciones de dominios.
+
+                Hay además dos reglas de integridad muy importantes que son restricciones que se
+                deben cumplir en todas las bases de datos relacionales y en todos sus estados o
+                instancias (las reglas se deben cumplir todo el tiempo). 
+
+
+                \begin{itemize}
+                    \item
+                        \textbf{Ninguno de los atributos que componen la Llave Primaria
+                        puede ser nunca nulo}
+
+                        Por definición, una clave primaria es un identificador irreducible que se 
+                        utiliza para identificar de modo único las tuplas, si se permite que parte
+                        de la clave primaria sea nula, se está diciendo que no todos sus atributos
+                        son necesarios para distinguir las tuplas, con lo que se contradice la
+                        irreducibilidad.
+
+                        Nótese que esta regla sólo se aplica a las relaciones propietarias
+
+
+                    \item
+                        \textbf{Si en una relación hay alguna Llave Foránea, sus valores deben
+                        coincidir con valores de la clave primaria a la que hace referencia, o bien,
+                        deben ser completamente nulos}
+
+                \end{itemize}
+
+
+            % ==============================================
+            % ==========   REGLAS DE NEGOCIOS    ===========
+            % ==============================================
+            \subsection{Reglas de Negocio}
+
+                Además de las dos reglas de integridad anteriores, los usuarios o los administradores
+                de la base de datos pueden imponer ciertas restricciones específicas sobre los datos,
+                denominadas reglas de negocio.
+
+                Por ejemplo, si en una oficina de la empresa inmobiliaria sólo puede haber hasta veinte
+                empleados, el SGBD debe dar la posibilidad al usuario de definir una regla al respecto
+                y debe hacerla respetar.
+                En este caso, no debería permitir dar de alta un empleado en una oficina que ya tiene
+                los veinte permitidos.
 
 
 
 
-
-
-
-
-
-
-
+        % =====================================================
+        % == NORMALIZACION: DE ENTIDAD RELACION A RELACIONAL ==
+        % =====================================================
+        \clearpage
+        \section{Normalización}
 
             
-        
+            % ==============================================
+            % ==========      MAPEAR ENTIDADES    ==========
+            % ==============================================
+            \subsection{Mapear Entidades}
+
+                \begin{itemize}
+                    \item Cada entidad en un Diagrama Entidad Relación (DER) es transformado en
+                        una Relación.
+
+                    \item Cada atributo en una entidad se convierte en atributo de la relación.
+
+                    \item El atributo identificador de la entidad se convierte en la llave primaria
+                        de la relación correspondiente.
+                \end{itemize}
+
+                \begin{figure}[h]
+                    \centering
+                    \includegraphics[width=0.75\textwidth]{NormalizacionEntidad}
+                \end{figure}
+
+
+
+
+                
+
+                
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
