@@ -1330,28 +1330,104 @@
 
                 \begin{figure}[h]
                     \centering
-                    \includegraphics[width=0.75\textwidth]{NormalizacionEntidad}
+                    \includegraphics[width=0.8\textwidth]{NormalizacionEntidad}
+                \end{figure}
+
+
+            % ==============================================
+            % ==========      MAPEAR COMPUESTOS   ==========
+            % ==============================================
+            \clearpage
+            \subsection{Mapear Atributos Compuestos}
+
+                Cuando una entidad tiene atributos compuestos, solo los componentes del atributo
+                compuesto son incluidos en la nueva relación.
+
+                \begin{figure}[h]
+                    \centering
+                    \includegraphics[width=0.80\textwidth]{NormalizacionCompuesto}
+                \end{figure}
+
+
+            % ==============================================
+            % ==========      MAPEAR MULTIVALOR   ==========
+            % ==============================================
+            \clearpage
+            \subsection{Mapear Atributos MultiValor}
+
+                Cuando una entidad contiene atributos multivalor, dos nuevas relaciones son creadas.
+
+                \begin{itemize}
+
+                    \item
+                        La primera relación contiene todos los atributos de la entidad excepto el
+                        atributo multivalor.
+                    \item
+                        La segunda relación contiene dos atributos que forman la llave primaria
+                        (llave primaria compuesta) de la segunda relación.
+
+                        El primero de estos atributos es la llave primaria de la primera relación,
+                        la cual se convierte en la llave foránea en la segunda relación.
+                        El segundo atributo es el atributo multivalor.
+                        El nombre de la segunda relación debe ser representativo del atributo multivalor.
+
+                \end{itemize}  
+
+                \begin{figure}[h]
+                    \centering
+                    \includegraphics[width=0.85\textwidth]{NormalizacionMultiValor}
                 \end{figure}
 
 
 
+            % ==============================================
+            % =======  MAPEAR ENTIDADES DEBILES   ==========
+            % ==============================================
+            \clearpage
+            \subsection{Mapear de Entidades Débiles}
+
+                Por cada par de Entidades fuertes y debiles tenemos que crear dos entidades:
+
+                \begin{itemize}
+                    
+                    \item 
+                        Se crea una nueva relación basada en la entidad fuerte e incluye todos los atributos
+                        simples (o atributos simples de atributos compuestos) como atributos de esta relación.
+
+                    \item Se crea otra relación basada en la entidad debíl, esta incluye la llave primaria de
+                        la entidad fuerte o relación identificada como llave foránea en esta nueva relación.
+
+                        La llave primaria de la nueva relación es la combinación de la llave primaria de la
+                        entidad fuerte y el identificador parcial de la entidad débil.
+
+                \end{itemize}
+
+                \begin{figure}[h]
+                    \centering
+                    \includegraphics[width=0.85\textwidth]{NormalizacionEntidadDebil}
+                \end{figure}
 
                 
 
-                
 
+            % ==============================================
+            % =======  MAPEAR RELACIONES BINARIAS  =========
+            % ==============================================
+            \clearpage
+            \subsection{Mapear Relaciones Binarias: Uno a Muchos}
 
+                Para cada relación uno a muchos, primero se crea una relación para cada una de las dos
+                entidades participantes en la relación, usando el procedimiento para mapear entidades.
 
+                Se debe incluir la llave primaria de la entidad del lado de la cardinalidad uno como llave
+                foránea en la relación que está del lado de cardinalidad muchos de la relación.
 
+                En otras palabras, la llave primaria se pasa como llave foránea al lado de los muchos.
 
-
-
-
-
-
-
-
-
+                \begin{figure}[h]
+                    \centering
+                    \includegraphics[width=0.85\textwidth]{NormalizacionRelacionesBinariasUnoMuchos}
+                \end{figure}
 
 
 

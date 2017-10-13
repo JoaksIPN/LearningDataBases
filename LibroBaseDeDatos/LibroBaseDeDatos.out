@@ -1,0 +1,48 @@
+\BOOKMARK [-1][-]{part.1}{I Parte Abstracta}{}% 1
+\BOOKMARK [0][-]{chapter.1}{Definici\363nes}{part.1}% 2
+\BOOKMARK [1][-]{section.1.1}{Repositorio de Datos}{chapter.1}% 3
+\BOOKMARK [1][-]{section.1.2}{Base de Datos}{chapter.1}% 4
+\BOOKMARK [1][-]{section.1.3}{Proposito para una Base de Datos}{chapter.1}% 5
+\BOOKMARK [1][-]{section.1.4}{Elementos de un Sistema de Base de Datos}{chapter.1}% 6
+\BOOKMARK [1][-]{section.1.5}{Abstracci\363n de los Datos}{chapter.1}% 7
+\BOOKMARK [1][-]{section.1.6}{Usuarios de una Base de Datos}{chapter.1}% 8
+\BOOKMARK [2][-]{subsection.1.6.1}{Usuarios Finales}{section.1.6}% 9
+\BOOKMARK [1][-]{section.1.7}{DML vs DDL}{chapter.1}% 10
+\BOOKMARK [1][-]{section.1.8}{Arquitectura del Sistema Gestor}{chapter.1}% 11
+\BOOKMARK [1][-]{section.1.9}{Arquitecturas de las Bases de Datos}{chapter.1}% 12
+\BOOKMARK [0][-]{chapter.2}{Sistema Entidad-Relaci\363n}{part.1}% 13
+\BOOKMARK [1][-]{section.2.1}{\277Qu\351 es?}{chapter.2}% 14
+\BOOKMARK [1][-]{section.2.2}{Entidades}{chapter.2}% 15
+\BOOKMARK [1][-]{section.2.3}{Relaciones}{chapter.2}% 16
+\BOOKMARK [2][-]{subsection.2.3.1}{Cardinalidad}{section.2.3}% 17
+\BOOKMARK [2][-]{subsection.2.3.2}{Atributos en las Relaciones}{section.2.3}% 18
+\BOOKMARK [2][-]{subsection.2.3.3}{Grado de una Relaci\363n}{section.2.3}% 19
+\BOOKMARK [1][-]{section.2.4}{Atributos}{chapter.2}% 20
+\BOOKMARK [0][-]{chapter.3}{Sistema Entidad-Relaci\363n Extendido}{part.1}% 21
+\BOOKMARK [1][-]{section.3.1}{Introducci\363n}{chapter.3}% 22
+\BOOKMARK [0][-]{chapter.4}{Sistema Relacional}{part.1}% 23
+\BOOKMARK [1][-]{section.4.1}{Introducci\363n}{chapter.4}% 24
+\BOOKMARK [1][-]{section.4.2}{Definiciones B\341sicas}{chapter.4}% 25
+\BOOKMARK [1][-]{section.4.3}{Relaciones}{chapter.4}% 26
+\BOOKMARK [2][-]{subsection.4.3.1}{Llaves Relaciones}{section.4.3}% 27
+\BOOKMARK [2][-]{subsection.4.3.2}{Reglas de Integridad}{section.4.3}% 28
+\BOOKMARK [2][-]{subsection.4.3.3}{Reglas de Negocio}{section.4.3}% 29
+\BOOKMARK [1][-]{section.4.4}{Normalizaci\363n}{chapter.4}% 30
+\BOOKMARK [2][-]{subsection.4.4.1}{Mapear Entidades}{section.4.4}% 31
+\BOOKMARK [2][-]{subsection.4.4.2}{Mapear Atributos Compuestos}{section.4.4}% 32
+\BOOKMARK [2][-]{subsection.4.4.3}{Mapear Atributos MultiValor}{section.4.4}% 33
+\BOOKMARK [2][-]{subsection.4.4.4}{Mapear de Entidades D\351biles}{section.4.4}% 34
+\BOOKMARK [2][-]{subsection.4.4.5}{Mapear Relaciones Binarias: Uno a Muchos}{section.4.4}% 35
+\BOOKMARK [-1][-]{part.2}{II Parte Practica}{}% 36
+\BOOKMARK [0][-]{chapter.5}{SQL}{part.2}% 37
+\BOOKMARK [1][-]{section.5.1}{SQL como Lenguaje}{chapter.5}% 38
+\BOOKMARK [0][-]{chapter.6}{Queries en SQL}{part.2}% 39
+\BOOKMARK [1][-]{section.6.1}{SELECT FROM}{chapter.6}% 40
+\BOOKMARK [2][-]{subsection.6.1.1}{Distint vs All}{section.6.1}% 41
+\BOOKMARK [1][-]{section.6.2}{Funciones de Agregaci\363n}{chapter.6}% 42
+\BOOKMARK [1][-]{section.6.3}{WHERE}{chapter.6}% 43
+\BOOKMARK [1][-]{section.6.4}{Comparaci\363n de Strings}{chapter.6}% 44
+\BOOKMARK [1][-]{section.6.5}{Orden de las Tuplas}{chapter.6}% 45
+\BOOKMARK [1][-]{section.6.6}{Views en SQL}{chapter.6}% 46
+\BOOKMARK [2][-]{subsection.6.6.1}{Ventajas}{section.6.6}% 47
+\BOOKMARK [2][-]{subsection.6.6.2}{Sintaxis}{section.6.6}% 48
