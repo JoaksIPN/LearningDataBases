@@ -1345,7 +1345,7 @@
 
                 \begin{figure}[h]
                     \centering
-                    \includegraphics[width=0.80\textwidth]{NormalizacionCompuesto}
+                    \includegraphics[width=0.85\textwidth]{NormalizacionCompuesto}
                 \end{figure}
 
 
@@ -1404,7 +1404,33 @@
 
                 \begin{figure}[h]
                     \centering
-                    \includegraphics[width=0.85\textwidth]{NormalizacionEntidadDebil}
+                    \includegraphics[width=0.95\textwidth]{NormalizacionEntidadDebil}
+                \end{figure}
+
+
+
+            % ==============================================
+            % =======  MAPEAR RELACIONES BINARIAS  =========
+            % ==============================================
+            \clearpage
+            \subsection{Mapear Relaciones Binarias: Uno a Uno}
+
+                Para una relación binaria uno a uno (1:1) se debe crear 2 relaciones, una para cada entidad
+                involucrada.
+
+                \begin{itemize}
+                    \item 
+                        La llave primara de una de las relaciones resultantes es incluida como llave
+                        foránea de la otra entidad.
+                    \item
+                        Si la relación binaria es opcional en una dirección y obligatoria hacia la otra dirección
+                        (como se muestra en el ejemplo), la llave foránea debe de ir del lado de la relación
+                        opcional, esto para evitar valores nulos.
+                \end{itemize}
+
+                \begin{figure}[h]
+                    \centering
+                    \includegraphics[width=0.95\textwidth]{NormalizacionRelacionesBinariasUnoUno}
                 \end{figure}
 
                 
@@ -1426,12 +1452,254 @@
 
                 \begin{figure}[h]
                     \centering
-                    \includegraphics[width=0.85\textwidth]{NormalizacionRelacionesBinariasUnoMuchos}
+                    \includegraphics[width=0.95\textwidth]{NormalizacionRelacionesBinariasUnoMuchos}
+                \end{figure}
+
+
+            % ==============================================
+            % =======  MAPEAR RELACIONES BINARIAS  =========
+            % ==============================================
+            \clearpage
+            \subsection{Mapear Relaciones Binarias: Muchos a Muchos}
+
+                Suponga la relación entre dos entidades A y B.
+                Para hacer el mapeo se deben generar 2 relaciones una para cada una de las entidades (A y B) y
+                una adicional para la relación M:N entre las entidades, que llamaremos C.
+
+                Esta nueva relación C tendrá estas carácteristicas:
+
+                \begin{itemize}
+                    \item
+                        Se debe incluir como llaves foráneas de la relación C, la llave primaria de cada
+                        una de las dos entidades (A y B).
+                    \item
+                        Estos mismos atributos (llaves foráneas) se convierten en la llave primaria de la
+                        relación C, cualquier atributo asociado a la relación M:N se debe incluir en la relación C.
+                \end{itemize}
+
+                \begin{figure}[h]
+                    \centering
+                    \includegraphics[width=0.95\textwidth]{NormalizacionRelacionesBinariasMuchosMuchos}
                 \end{figure}
 
 
 
 
+            % ==============================================
+            % =======  MAPEAR ENTIDADES ASOCIATIVAS  =======
+            % ==============================================
+            \clearpage
+            \subsection{Mapear Entidades Asociativas}
+
+                Se crean 3 relaciones, una para cada una de las entidades, incluyendo la entidad asociativa
+                (la cual se denomina relación asociativa al hacer el mapeo).
+
+                Existen dos casos al hacer el mapeo al modelo relacional, el primero es si no existe un
+                identificador asignado a la entidad asociativa y el segundo es si existe un identificador
+                asignado a la entidad asociativa.
+
+                \begin{itemize}
+                    \item
+                        Si no existe un identificador asignado, la llave primaria de la relación asociativa
+                        se va a componer de dos atributos (llave compuesta), los cuales son las llaves
+                        primarias de las otras dos relaciones. 
+
+                        Los atributos simples asociados a la entidad asociativa se agregan a la relación
+                        asociativa como atributos adicionales.
+
+                        \begin{figure}[h]
+                            \centering
+                            \includegraphics[width=0.85\textwidth]{NormalizacionRelacionesBinariasMuchosMuchos}
+                        \end{figure}
+
+                    \clearpage
+
+                    \item
+                        Si existe un identificador asignado a la entidad asociativa, se crean tres relaciones,
+                        incluyendo la relación asociativa, la llave primaria de la relación asociativa va a ser
+                        el atributo identificador asociado a la misma y no será una llave compuesta como en el
+                        caso anterior. Las llaves primarias de las otras dos entidades participantes son
+                        incluidas como llaves foráneas en la relación asociativa resultante.
+
+                        \begin{figure}[h]
+                            \centering
+                            \includegraphics[width=0.85\textwidth]{NormalizacionRelacionesBinariasMuchosMuchos}
+                        \end{figure}
+
+                \end{itemize}
+
+                
+
+                
+    % ===============================================================================
+    % ==============       ALMACENAMIENTO DE INFORMACIÓN       ======================
+    % ===============================================================================
+    \chapter{Almacenamiento de Información}
+
+
+        % ==============================================
+        % ===============   INDICES      ===============
+        % ==============================================
+        \clearpage
+        \section{Indices}
+
+
+            % ==============================================
+            % ===========  INTRODUCCIÓN      ===============
+            % ==============================================
+            \subsection{Introducción}
+
+                Muchas consultas hacen referencia solo a una pequeña proporción de los registros en un archivo.
+
+                Por ejemplo, una consulta como \Quote{Buscar todos los instructores en el departamento de Física}
+                o \Quote{Encontrar el número total de créditos obtenidos por el estudiante con ID 22201} hace
+                referencia a solo una fracción de los registros del estudiante.
+
+                Es ineficiente que el sistema lea cada tupla en la relación del instructor para verificar si
+                el departamento es ineficiente para leer toda la relación estudiantil solo para encontrar la
+                única tupla para la ID "32556".
+
+                Idealmente, el sistema debería poder ubicar estos registros directamente. Para permitir estas
+                formas de acceso, diseñamos estructuras adicionales que asociamos con los archivos.
+                
+
+                Un índice para un archivo en un sistema de base de datos funciona de forma muy parecida al
+                índice en este libro de texto. Si queremos aprender sobre un tema en particular (especificado
+                por una palabra o una frase) en este libro de texto, podemos buscar el tema en el índice al
+                final del libro, encontrar las páginas donde se produce y luego leer las páginas para encontrar
+                la información para la que estamos buscando. 
+
+                Las palabras en el índice están ordenadas, lo que facilita encontrar la palabra que queremos.
+                Además, el índice es mucho más pequeño que el libro, reduciendo aún más el esfuerzo necesario.
+
+                Los índices del sistema de base de datos cumplen el mismo rol que los índices de libros en
+                las bibliotecas.
+
+                Por ejemplo, para recuperar un registro de alumno con una ID, el sistema de base de datos
+                buscaría un índice para encontrar en qué bloque de disco reside el registro correspondiente,
+                y luego buscará el bloque de disco, para obtener el registro de estudiante apropiado.
+
+                Mantener una lista ordenada de ID de los estudiantes no funcionaría bien en bases de datos
+                muy grandes con miles de estudiantes, ya que el índice sería muy grande; Además, aunque mantener
+                el índice ordenado reduce el tiempo de búsqueda, encontrar un estudiante puede ser bastante lento.
+
+
+                \clearpage
+
+                Los índices en las BBDD pretenden aligerar las consultas, a modo de simil podríamos verlos
+                como un índice de libro. Buscar un capítulo en un libro sin un índice implicaría recorrer
+                el libro entero hasta que nos topasemos con el mientras que encontrarlo con un índice
+                supondría recorrer este último y luego ir directamente a la página en la que se encuentra
+                lo que nos interesa.
+
+                En general podemos decir que:
+                Un índice es una estructura de disco asociada con una tabla o una vista que acelera la 
+                recuperación de filas de la tabla o de la vista. Un índice contiene claves generadas a
+                partir de una o varias columnas de la tabla o la vista. 
+
+                Pro:
+                \begin{itemize}
+                    \item Las búsquedas recorren muchas menos tuplas.
+                    \item Menos carga.
+                    \item Mas velocidad.
+                \end{itemize}
+
+
+                Contras:
+                \begin{itemize}
+                    \item Evidentemente los índices tienen que generarse y posteriormente actualizarse
+                        con cada escritura, esto supone carga.
+                    \item Los índices ocupan espacio, se que parece de perogrullo, pero cuando superan en
+                        tamaño a la BBDD tienes un problema.
+                \end{itemize}
+
+
+            % ==============================================
+            % ===========  INDICES PRIMARIOS    ============
+            % ==============================================
+            \clearpage
+            \subsection{Indices Primarios}
+
+                Para obtener acceso aleatorio rápido a los registros en un archivo, podemos usar una estructura
+                de índice. Cada estructura de índice está asociada con una clave de búsqueda en particular.
+
+                Al igual que el índice de un libro o un catálogo de biblioteca, un índice ordenado almacena los
+                valores de las claves de búsqueda en orden ordenado y asocia con cada clave de búsqueda los
+                registros que lo contienen.
+
+                Un archivo puede tener varios índices, en diferentes claves de búsqueda. Si el archivo que
+                contiene los registros se ordena secuencialmente, un índice de agrupamiento es un índice cuya
+                clave de búsqueda también define el orden secuencial del archivo.
+
+                El término índice primario puede parecer que denota un índice en una clave primaria, pero tales
+                índices pueden de hecho construirse en cualquier clave de búsqueda. La clave de búsqueda de un
+                índice de agrupamiento suele ser la clave principal, aunque no necesariamente. Los índices cuya
+                clave de búsqueda especifica un orden diferente del orden secuencial del archivo se denominan
+                índices no agrupados o índices secundarios.
+
+
+            % ==============================================
+            % ===========  INDICES SECUNDARIOS   ===========
+            % ==============================================
+            \subsection{Indices Secundarios}
+
+                Los índices secundarios deben ser densos, con una entrada de índice para cada valor de clave
+                de búsqueda y un puntero para cada registro en el archivo. Un índice de agrupamiento puede ser
+                escaso, almacenando solo algunos de los valores de la clave de búsqueda, ya que siempre es
+                posible encontrar registros con valores de clave de búsqueda intermedios mediante un acceso
+                secuencial a una parte del archivo, como se describió anteriormente. Si un índice secundario
+                almacena solo algunos de los valores de la clave de búsqueda, los registros con valores de
+                clave de búsqueda intermedios pueden estar en cualquier lugar del archivo y, en general,
+                no podemos encontrarlos sin buscar el archivo completo.
+
+                Un índice secundario en una clave candidata se parece exactamente a un índice de agrupamiento
+                denso, excepto que los registros apuntados por valores sucesivos en el índice no se almacenan 
+                secuencialmente.
+
+                En general, sin embargo, los índices secundarios pueden tener una estructura diferente de los
+                índices de agrupamiento. Si la clave de búsqueda de un índice de clústeres no es una clave
+                candidata, basta con que el índice apunte al primer registro con un valor particular para
+                la clave de búsqueda, ya que los otros registros pueden obtenerse mediante un escaneo
+                secuencial del archivo.
+
+
+            % ==============================================
+            % ===========  INDICES HASH   ==================
+            % ==============================================
+            \clearpage
+            \subsection{Indices Hash}
+
+                Una desventaja de la organización de archivos secuenciales es que debemos acceder a una
+                estructura de índice para localizar datos, o debemos usar la búsqueda binaria, y eso da
+                como resultado más operaciones de E / S. Las organizaciones de archivos basadas en la
+                técnica de hashing nos permiten evitar el acceso a una estructura de índice.
+
+                Hashing también proporciona una forma de construir índices. Estudiamos organizaciones de
+                archivos e índices basados en hashing en las siguientes secciones.
+
+
+            % ==============================================
+            % ===========  INDICES B TREE  ==================
+            % ==============================================
+            \subsection{Indices Arboles B}
+
+                La principal desventaja de la organización de archivos index-sequential es que el rendimiento
+                se degrada a medida que el archivo crece, tanto para las búsquedas de índices como para los 
+                escaneos secuenciales a través de los datos. Aunque esta degradación se puede remediar
+                mediante la reorganización del archivo, las reorganizaciones frecuentes son indeseables.
+
+                La estructura de índice de árbol B + es la más utilizada de varias estructuras de índice que
+                mantienen su eficiencia a pesar de la inserción y eliminación de datos.
+                Un índice de árbol B toma la forma de un árbol equilibrado en el que cada ruta desde la raíz del
+                árbol hasta una hoja del árbol es de la misma longitud.
+
+                Cada nodo sin hoja en el árbol tiene entre [n / 2] y n hijos, donde n se fija para un árbol
+                en particular.
+
+                \begin{figure}[h]
+                    \centering
+                    \includegraphics[width=0.4\textwidth]{BTree}
+                \end{figure}
 
 
 
