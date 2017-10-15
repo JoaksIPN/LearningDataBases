@@ -1852,9 +1852,9 @@
 
 
     % ===============================================================================
-    % ===================        QUERIES EN SQL                ======================
+    % ===================        VIEWS EN SQL                  ======================
     % ===============================================================================
-    \section{Views en SQL}
+    \chapter{Views en SQL}
 
 
         En teoría de bases de datos, una vista es una consulta que se presenta como una tabla (virtual)
@@ -1875,7 +1875,7 @@
         % ========================================
         % =========     VENTAJAS     =============
         % ========================================
-        \subsection{Ventajas}
+        \section{Ventajas}
 
             Las vistas pueden ofrecer ventajas sobre las tablas:
 
@@ -1903,7 +1903,7 @@
         % ========================================
         % =========    SINTAXIS      =============
         % ========================================
-        \subsection{Sintaxis}
+        \section{Sintaxis}
 
             Empecemos por la sentencia general de las vistas:
 
@@ -1913,6 +1913,40 @@
                         FROM TableName
                         WHERE Conditions
                         ORDER BY FielName; 
+            \end{lstlisting}
+
+    % ===============================================================================
+    % ===================        PROCEDURES EN SQL               ====================
+    % ===============================================================================
+    \clearpage
+    \chapter{Procedures en SQL}
+
+        Literalmente son como funciones, bueno, más específicamente son procedimientos,
+        es decir un conjunto de instrucciones en SQL que se ejecutan una tras otra.
+
+
+        % ========================================
+        % =========    SINTAXIS      =============
+        % ========================================
+        \section{Sintaxis}
+
+            Empecemos por la sentencia general de las vistas:
+
+            \begin{lstlisting}[language=SQL, gobble=16]
+                DELIMITER &
+                CREATE PROCEDURE ProcedureName()
+                BEGIN
+                    SQLInstruccion1;
+
+                    SQLInstruccion2;
+
+                    ...
+
+                    SQLInstruccionN;
+                END &
+
+                DELIMITER ;
+                CALL ProcedureName;
             \end{lstlisting}
 
 \end{document}

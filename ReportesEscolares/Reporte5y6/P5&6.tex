@@ -217,7 +217,7 @@
 
     % ============ NAME OF THE DOCUMENT  ============
     \rule{\linewidth}{0.5mm} \\[1.0cm]
-        { \huge \bfseries Vistas}\\[1.0cm] 
+        { \huge \bfseries Vistas e Introducción a Procedures}\\[1.0cm] 
     \rule{\linewidth}{0.5mm} \\[2.0cm]
      
     % ============  MY INFORMATION  =================
@@ -236,7 +236,7 @@
     \end{minipage}\\[3,5cm]
 
     % ====== SEMI TITLE ==========
-    {\LARGE Reporte 5}\\[4cm] 
+    {\LARGE Reporte 5 y 6}\\[4cm] 
     
     
     \vfill
@@ -319,7 +319,38 @@
 
 
 
+% ===============================================================================
+% ===================        PROCEDURES EN SQL               ====================
+% ===============================================================================
+\section{Procedures en SQL}
 
+    Literalmente son como funciones, bueno, más específicamente son procedimientos,
+    es decir un conjunto de instrucciones en SQL que se ejecutan una tras otra.
+
+
+    % ========================================
+    % =========    SINTAXIS      =============
+    % ========================================
+    \subsection{Sintaxis}
+
+        Empecemos por la sentencia general de las vistas:
+
+        \begin{lstlisting}[language=SQL, gobble=12]
+            DELIMITER &
+            CREATE PROCEDURE ProcedureName()
+            BEGIN
+                SQLInstruccion1;
+
+                SQLInstruccion2;
+
+                ...
+
+                SQLInstruccionN;
+            END &
+
+            DELIMITER ;
+            CALL ProcedureName;
+        \end{lstlisting}
        
 
 % ===============================================================================
@@ -540,77 +571,51 @@
             \lstinputlisting[language=SQL, linerange={5-16}]{Practica6.sql}
 
         \item
-            \textbf{Mostramos: Nombre del Producto y su Categoria}
-            \lstinputlisting[language=SQL, linerange={14-21}]{Practica5.sql}
+            \textbf{Mostramos: Mostrar las calificaciones de los tt remediales}
+            \lstinputlisting[language=SQL, linerange={20-28}]{Practica6.sql}
 
         \item
-            \textbf{Mostramos: Nombre de la Categoria y Subcategoria}
-            \lstinputlisting[language=SQL, linerange={25-31}]{Practica5.sql}
+            \textbf{Mostramos: Mostrar la fecha de la presentacion y el tipo de tt que han sido 
+                dirigidos por Arturo Garfias}
+            \lstinputlisting[language=SQL, linerange={32-45}]{Practica6.sql}
 
         \item
-            \textbf{Mostramos: Nombre del Cliente y Sucursal donde fue dado de alta}
-            \lstinputlisting[language=SQL, linerange={35-46}]{Practica5.sql}
-
-        \item
-            \textbf{Mostramos: Nombre del Producto y su Subcategoria}
-            \lstinputlisting[language=SQL, linerange={50-58}]{Practica5.sql}
-
-
-        \item
-            \textbf{Mostramos: Nombre del Cliente y monto del Credito}
-            \lstinputlisting[language=SQL, linerange={62-73}]{Practica5.sql}
-
-        \item
-            \textbf{Mostramos: Nombre del Cliente y fechas de pago}
-            \lstinputlisting[language=SQL, linerange={75-85}]{Practica5.sql}
-
-        \item
-            \textbf{Mostramos: Nombre del Producto y Precio Unitario}
-            \lstinputlisting[language=SQL, linerange={87-93}]{Practica5.sql}
-
-        \item
-            \textbf{Mostramos: Nombre del Producto y su Marca}
-            \lstinputlisting[language=SQL, linerange={97-103}]{Practica5.sql}
-
-        \item
-            \textbf{Mostramos: Nombre del Cliente, Email y su género}
-            \lstinputlisting[language=SQL, linerange={107-116}]{Practica5.sql}
-
-        \item
-            \textbf{Mostramos: Nombre del Cliente y su Salario}
-            \lstinputlisting[language=SQL, linerange={120-128}]{Practica5.sql}
-
-
-
-
-
-
-
-        \item
-            \textbf{Clientes en las sucursales de Colima}
-            \lstinputlisting[language=SQL, linerange={138-145}]{Practica5.sql}
-
-        \item
-            \textbf{Sucursales donde hay mujeres}
-            \lstinputlisting[language=SQL, linerange={149-158}]{Practica5.sql}
+            \textbf{Mostramos: Nombre de los profesores que tienen doctorado}
+            \lstinputlisting[language=SQL, linerange={49-59}]{Practica6.sql}
 
         \clearpage
 
         \item
-            \textbf{Clientes que ganan entre 6k y 6.5k, incluir sucursales}
-            \lstinputlisting[language=SQL, linerange={162-171}]{Practica5.sql}
+            \textbf{Mostramos: Mostrar tt del 2007}
+            \lstinputlisting[language=SQL, linerange={63-72}]{Practica6.sql}
+
 
         \item
-            \textbf{Productos de Deporte}
-            \lstinputlisting[language=SQL, linerange={175-181}]{Practica5.sql}
+            \textbf{Mostramos: Mostrar tt donde ha sido sinodal Martha Rosa}
+            \lstinputlisting[language=SQL, linerange={76-87}]{Practica6.sql}
 
         \item
-            \textbf{Mostramos: Mostrar los departamentos que tiene la sucursal Tijuana}
-            \lstinputlisting[language=SQL, linerange={141-148}]{Practica5.sql}
+            \textbf{Mostramos: Mostrar tt que se presentaron el 2008}
+            \lstinputlisting[language=SQL, linerange={90-99}]{Practica6.sql}
 
         \item
-            \textbf{Clientes que pagaron en 12 Marzo de 2010, incluir de la Sucursal}
-            \lstinputlisting[language=SQL, linerange={185-194}]{Practica5.sql}
+            \textbf{Mostramos: Mostrar dictamen de los tts que han sido revisados por Idalia}
+            \lstinputlisting[language=SQL, linerange={103-115}]{Practica6.sql}
+
+
+        \clearpage
+
+
+
+        \item
+            \textbf{Conocer el numero de Registros sobre Euler dirigio tt}
+            \textbf{Conocer el numero de tt y la fecha de presentación de 9}
+            \lstinputlisting[language=SQL, linerange={121-144}]{Practica6.sql}
+
+        \item
+            \textbf{Conocer el tt que tienen en su título redes}
+            \textbf{Conocer el nombre de sus directores de la anterior}
+            \lstinputlisting[language=SQL, linerange={148-169}]{Practica6.sql}
 
     \end{itemize}
 
@@ -623,107 +628,67 @@
 
         \begin{figure}[ht!]
             \centering
-            \includegraphics[width=0.35\textwidth]{BD5Reporte1}
+            \includegraphics[width=0.55\textwidth]{BD6Reporte1}
             \caption{Nombre de la Sucursal y el estado donde esta}
         \end{figure}
 
         \begin{figure}[ht!]
             \centering
-            \includegraphics[width=0.35\textwidth]{BD5Reporte2}
-            \caption{Nombre del Producto y su Categoria}
+            \includegraphics[width=0.55\textwidth]{BD6Reporte2}
+            \caption{Mostrar las calificaciones de los tt remediales}
         \end{figure}
 
 
         \begin{figure}[ht!]
             \centering
-            \includegraphics[width=0.35\textwidth]{BD5Reporte3}
-            \caption{Nombre de la Categoria y Subcategoria}
+            \includegraphics[width=0.55\textwidth]{BD6Reporte3}
+            \caption{Mostrar la fecha de la presentacion y el tipo de tt que han sido dirigidos por Arturo Garfias}
         \end{figure}
 
         \begin{figure}[ht!]
             \centering
-            \includegraphics[width=0.35\textwidth]{BD5Reporte4}
-            \caption{Nombre del Cliente y Sucursal donde fue dado de alta}
+            \includegraphics[width=0.35\textwidth]{BD6Reporte4}
+            \caption{Nombre de los profesores que tienen doctorado}
         \end{figure}
 
         \begin{figure}[ht!]
             \centering
-            \includegraphics[width=0.35\textwidth]{BD5Reporte5}
-            \caption{Nombre del Producto y su Subcategoria}
+            \includegraphics[width=0.35\textwidth]{BD6Reporte5}
+            \caption{Mostrar tt del 2007}
         \end{figure}
 
         \begin{figure}[ht!]
             \centering
-            \includegraphics[width=0.45\textwidth]{BD5Reporte6}
-            \caption{Nombre del Cliente y monto del Credito}
+            \includegraphics[width=0.45\textwidth]{BD6Reporte6}
+            \caption{Mostrar tt donde ha sido sinodal Martha Rosa}
         \end{figure}
 
         \begin{figure}[ht!]
             \centering
-            \includegraphics[width=0.45\textwidth]{BD5Reporte7}
-            \caption{Nombre del Cliente y fechas de pago}
-        \end{figure}
-
-
-        \begin{figure}[ht!]
-            \centering
-            \includegraphics[width=0.45\textwidth]{BD5Reporte8}
-            \caption{Nombre del Producto y Precio Unitario}
-        \end{figure}
-
-        \begin{figure}[ht!]
-            \centering
-            \includegraphics[width=0.45\textwidth]{BD5Reporte9}
-            \caption{Nombre del Producto y su Marca}
-        \end{figure}
-
-        \begin{figure}[ht!]
-            \centering
-            \includegraphics[width=0.45\textwidth]{BD5Reporte10}
-            \caption{Nombre del Cliente, Email y su género}
-        \end{figure}
-
-        \begin{figure}[ht!]
-            \centering
-            \includegraphics[width=0.45\textwidth]{BD5Reporte11}
-            \caption{Nombre del Cliente y su Salario}
-        \end{figure}
-
-        \clearpage
-
-        \begin{figure}[ht!]
-            \centering
-            \includegraphics[width=0.45\textwidth]{BD5Reporte2Parte1}
-            \caption{Clientes en las sucursales de Colima}
-        \end{figure}
-
-        \begin{figure}[ht!]
-            \centering
-            \includegraphics[width=0.45\textwidth]{BD5Reporte2Parte2}
-            \caption{Sucursales donde hay mujeres}
-        \end{figure}
-
-        \begin{figure}[ht!]
-            \centering
-            \includegraphics[width=0.45\textwidth]{BD5Reporte2Parte3}
-            \caption{Clientes que ganan entre 6k y 6.5k, incluir sucursales}
+            \includegraphics[width=0.45\textwidth]{BD6Reporte7}
+            \caption{Mostrar tt que se presentaron el 2008}
         \end{figure}
 
 
         \begin{figure}[ht!]
             \centering
-            \includegraphics[width=0.45\textwidth]{BD5Reporte2Parte4}
-            \caption{Productos de Deporte}
+            \includegraphics[width=0.45\textwidth]{BD6Reporte8}
+            \caption{Mostrar dictamen de los tts que han sido revisados por Idalia}
         \end{figure}
 
         \begin{figure}[ht!]
             \centering
-            \includegraphics[width=0.45\textwidth]{BD5Reporte2Parte5}
-            \caption{Clientes que pagaron en 12 Marzo de 2010, incluir de la Sucursal}
+            \includegraphics[width=0.45\textwidth]{BD6Reporte9}
+            \caption{Conocer el numero de Registros sobre Euler dirigio tt Conocer el nu-
+                mero de tt y la fecha de presentación de 9}
         \end{figure}
 
-
-
+        \begin{figure}[ht!]
+            \centering
+            \includegraphics[width=0.45\textwidth]{BD6Reporte10}
+            \caption{Conocer el tt que tienen en su título redes Conocer el nombre de sus
+            directores de la anterior}
+        \end{figure}
 
 
 

@@ -60,7 +60,7 @@ SELECT * FROM V4;
 
 
 
-#5: Mostar tt del 2007
+#5: Mostrar tt del 2007
 CREATE VIEW V5 AS
     SELECT p.fecha, t.*
         FROM presentacion p, tt t
@@ -73,7 +73,7 @@ SELECT * FROM V5;
 
 
 
-#6: Mostar tt donde ha sido sinodal Martha Rosa
+#6: Mostrar tt donde ha sido sinodal Martha Rosa
 CREATE VIEW V6 AS
     SELECT t.*
         FROM tt t, sinodalia s, profesor p
@@ -87,7 +87,7 @@ CREATE VIEW V6 AS
 SELECT * FROM V6;
 
 
-#7: Mostar tt que se presentaron el 2008
+#7: Mostrar tt que se presentaron el 2008
 CREATE VIEW V7 AS
     SELECT p.fecha, t.*
         FROM presentacion p, tt t
@@ -100,7 +100,7 @@ SELECT * FROM V7;
 
 
 
-#8: Mostar dictamen de los tts que han sido revisados por Idalia
+#8: Mostrar dictamen de los tts que han sido revisados por Idalia
 CREATE VIEW V8 AS
     SELECT pre.nott, pre.dictamen
         FROM presentacion pre, tt t, sinodalia s, profesor p
@@ -119,7 +119,7 @@ SELECT * FROM V8;
 # =============     PROCEDURE      =====================
 # ======================================================
 #9: Conocer el numero de Registros sobre Euler dirigio tt
-#9.1: Conocer el numero de tt y la fecha de presentación de 9
+#9.1: Conocer el numero de tt y la fecha de presentacion de 9
 DELIMITER &
 CREATE PROCEDURE P1()
 BEGIN
@@ -145,8 +145,8 @@ CALL P1;
 
 
 
-#11: Conocer tt que tienen en su título redes
-#11.1: Conocer el nombre de sus directores de la anterior
+#10: Conocer tt que tienen en su titulo redes
+#10.1: Conocer el nombre de sus directores de la anterior
 DELIMITER &
 CREATE PROCEDURE P3()
 BEGIN
