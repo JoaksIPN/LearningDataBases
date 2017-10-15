@@ -1310,7 +1310,7 @@
         % == NORMALIZACION: DE ENTIDAD RELACION A RELACIONAL ==
         % =====================================================
         \clearpage
-        \section{Normalización}
+        \section{Mapear Entidad Relación a Relacional}
 
             
             % ==============================================
@@ -1330,7 +1330,7 @@
 
                 \begin{figure}[h]
                     \centering
-                    \includegraphics[width=0.8\textwidth]{NormalizacionEntidad}
+                    \includegraphics[width=0.8\textwidth]{MapeoEntidad}
                 \end{figure}
 
 
@@ -1345,7 +1345,7 @@
 
                 \begin{figure}[h]
                     \centering
-                    \includegraphics[width=0.85\textwidth]{NormalizacionCompuesto}
+                    \includegraphics[width=0.85\textwidth]{MapeoCompuesto}
                 \end{figure}
 
 
@@ -1375,7 +1375,7 @@
 
                 \begin{figure}[h]
                     \centering
-                    \includegraphics[width=0.85\textwidth]{NormalizacionMultiValor}
+                    \includegraphics[width=0.85\textwidth]{MapeoMultiValor}
                 \end{figure}
 
 
@@ -1404,7 +1404,7 @@
 
                 \begin{figure}[h]
                     \centering
-                    \includegraphics[width=0.95\textwidth]{NormalizacionEntidadDebil}
+                    \includegraphics[width=0.95\textwidth]{MapeoEntidadDebil}
                 \end{figure}
 
 
@@ -1430,7 +1430,7 @@
 
                 \begin{figure}[h]
                     \centering
-                    \includegraphics[width=0.95\textwidth]{NormalizacionRelacionesBinariasUnoUno}
+                    \includegraphics[width=0.95\textwidth]{MapeoRelacionesBinariasUnoUno}
                 \end{figure}
 
                 
@@ -1452,7 +1452,7 @@
 
                 \begin{figure}[h]
                     \centering
-                    \includegraphics[width=0.95\textwidth]{NormalizacionRelacionesBinariasUnoMuchos}
+                    \includegraphics[width=0.95\textwidth]{MapeoRelacionesBinariasUnoMuchos}
                 \end{figure}
 
 
@@ -1479,7 +1479,7 @@
 
                 \begin{figure}[h]
                     \centering
-                    \includegraphics[width=0.95\textwidth]{NormalizacionRelacionesBinariasMuchosMuchos}
+                    \includegraphics[width=0.95\textwidth]{MapeoRelacionesBinariasMuchosMuchos}
                 \end{figure}
 
 
@@ -1509,7 +1509,7 @@
 
                         \begin{figure}[h]
                             \centering
-                            \includegraphics[width=0.85\textwidth]{NormalizacionRelacionesBinariasMuchosMuchos}
+                            \includegraphics[width=0.85\textwidth]{MapeoEntidadesAsociativas1}
                         \end{figure}
 
                     \clearpage
@@ -1523,12 +1523,94 @@
 
                         \begin{figure}[h]
                             \centering
-                            \includegraphics[width=0.85\textwidth]{NormalizacionRelacionesBinariasMuchosMuchos}
+                            \includegraphics[width=0.85\textwidth]{MapeoEntidadesAsociativas2}
                         \end{figure}
 
                 \end{itemize}
 
+
+
+            % ==============================================
+            % =======  MAPEAR UNARIAS: UNO A MUCHOS  =======
+            % ==============================================
+            \clearpage
+            \subsection{Mapear Relaciones Unarias: Uno a Muchos}
+
+                El mapeo de las relaciones unarias sigue el mismo procedimiento que el paso 1, es decir
+                se crea una relación para la entidad involucrada.
+
+                La llave foránea es agregada como un
+                atributo dentro de la misma relación que hace referencia a los valores de la llave
+                primaria (esta llave foránea debe tener el mismo dominio que la llave primaria).
+
+                \begin{figure}[h]
+                    \centering
+                    \includegraphics[width=0.85\textwidth]{MapeoRelacionesUnariasUnoMuchos}
+                \end{figure}
                 
+
+
+
+            % ==============================================
+            % ====  MAPEAR UNARIAS: MUCHOS A MUCHOS  =======
+            % ==============================================
+            \clearpage
+            \subsection{Mapear Relaciones Unarias: Muchos a Muchos}
+
+                Con este tipo de relación se crean dos relaciones, una para representar al tipo de entidad en
+                la relación y la otra será una relación asociativa para representar la relación muchos a muchos.
+
+                La llave primaria de la relación asociativa consistirá de dos atributos.
+                Ambos atributos (los cuales no deben llevar el mismo nombre) toman los valores de la llave
+                primaria de la otra relación, cualquier atributo adicional que no sea llave se incluye en la
+                relación asociativa.
+
+                \begin{figure}[h]
+                    \centering
+                    \includegraphics[width=0.85\textwidth]{MapeoRelacionesUnariasMuchosMuchos}
+                \end{figure}
+
+
+
+            % ==============================================
+            % ====    MAPEAR RELACIONES N-ARIAS      =======
+            % ==============================================
+            \clearpage
+            \subsection{Mapear Relaciones N-Arias}
+
+                Una relación ternaria es una relación entre tres tipos de entidades, se sugiere que
+                relaciones ternarias se conviertan en entidades asociativas para representar la participación
+                de las tres entidades más apropiadamente.
+
+
+                Para hacer el mapeo de una entidad asociativa que liga tres entidades se deben crear tres
+                relaciones y una relación adicional, la relación asociativa.
+
+                La llave primaria de esta relación asociativa consiste de tres atributos que son las llaves
+                primarias de las entidades participantes (en ocasiones se requieren de atributos adicionales
+                para formar una llave primaria única). Estos atributos también son las llaves foráneas que hacen
+                referencia a las llaves primarias de las entidades que participan en la relación.
+
+                Cualquier atributo adicional asociado a la entidad asociativa es agregado a los atributos de
+                la relación asociativa.
+
+                \begin{figure}[h]
+                    \centering
+                    \includegraphics[width=0.95\textwidth]{MapeoRelacionesNArias}
+                \end{figure}
+
+
+            % ==============================================
+            % ===   MAPEAR ENTIDAD RELACION EXTENDIDO    ===
+            % ==============================================
+            \clearpage
+            \subsection{Mapear Entidad Relación Extendido}
+
+                \begin{figure}[h]
+                    \centering
+                    \includegraphics[width=0.95\textwidth]{MapeoEntidadRelacionExtendido}
+                \end{figure}
+
 
                 
     % ===============================================================================
@@ -1612,94 +1694,6 @@
                     \item Los índices ocupan espacio, se que parece de perogrullo, pero cuando superan en
                         tamaño a la BBDD tienes un problema.
                 \end{itemize}
-
-
-            % ==============================================
-            % ===========  INDICES PRIMARIOS    ============
-            % ==============================================
-            \clearpage
-            \subsection{Indices Primarios}
-
-                Para obtener acceso aleatorio rápido a los registros en un archivo, podemos usar una estructura
-                de índice. Cada estructura de índice está asociada con una clave de búsqueda en particular.
-
-                Al igual que el índice de un libro o un catálogo de biblioteca, un índice ordenado almacena los
-                valores de las claves de búsqueda en orden ordenado y asocia con cada clave de búsqueda los
-                registros que lo contienen.
-
-                Un archivo puede tener varios índices, en diferentes claves de búsqueda. Si el archivo que
-                contiene los registros se ordena secuencialmente, un índice de agrupamiento es un índice cuya
-                clave de búsqueda también define el orden secuencial del archivo.
-
-                El término índice primario puede parecer que denota un índice en una clave primaria, pero tales
-                índices pueden de hecho construirse en cualquier clave de búsqueda. La clave de búsqueda de un
-                índice de agrupamiento suele ser la clave principal, aunque no necesariamente. Los índices cuya
-                clave de búsqueda especifica un orden diferente del orden secuencial del archivo se denominan
-                índices no agrupados o índices secundarios.
-
-
-            % ==============================================
-            % ===========  INDICES SECUNDARIOS   ===========
-            % ==============================================
-            \subsection{Indices Secundarios}
-
-                Los índices secundarios deben ser densos, con una entrada de índice para cada valor de clave
-                de búsqueda y un puntero para cada registro en el archivo. Un índice de agrupamiento puede ser
-                escaso, almacenando solo algunos de los valores de la clave de búsqueda, ya que siempre es
-                posible encontrar registros con valores de clave de búsqueda intermedios mediante un acceso
-                secuencial a una parte del archivo, como se describió anteriormente. Si un índice secundario
-                almacena solo algunos de los valores de la clave de búsqueda, los registros con valores de
-                clave de búsqueda intermedios pueden estar en cualquier lugar del archivo y, en general,
-                no podemos encontrarlos sin buscar el archivo completo.
-
-                Un índice secundario en una clave candidata se parece exactamente a un índice de agrupamiento
-                denso, excepto que los registros apuntados por valores sucesivos en el índice no se almacenan 
-                secuencialmente.
-
-                En general, sin embargo, los índices secundarios pueden tener una estructura diferente de los
-                índices de agrupamiento. Si la clave de búsqueda de un índice de clústeres no es una clave
-                candidata, basta con que el índice apunte al primer registro con un valor particular para
-                la clave de búsqueda, ya que los otros registros pueden obtenerse mediante un escaneo
-                secuencial del archivo.
-
-
-            % ==============================================
-            % ===========  INDICES HASH   ==================
-            % ==============================================
-            \clearpage
-            \subsection{Indices Hash}
-
-                Una desventaja de la organización de archivos secuenciales es que debemos acceder a una
-                estructura de índice para localizar datos, o debemos usar la búsqueda binaria, y eso da
-                como resultado más operaciones de E / S. Las organizaciones de archivos basadas en la
-                técnica de hashing nos permiten evitar el acceso a una estructura de índice.
-
-                Hashing también proporciona una forma de construir índices. Estudiamos organizaciones de
-                archivos e índices basados en hashing en las siguientes secciones.
-
-
-            % ==============================================
-            % ===========  INDICES B TREE  ==================
-            % ==============================================
-            \subsection{Indices Arboles B}
-
-                La principal desventaja de la organización de archivos index-sequential es que el rendimiento
-                se degrada a medida que el archivo crece, tanto para las búsquedas de índices como para los 
-                escaneos secuenciales a través de los datos. Aunque esta degradación se puede remediar
-                mediante la reorganización del archivo, las reorganizaciones frecuentes son indeseables.
-
-                La estructura de índice de árbol B + es la más utilizada de varias estructuras de índice que
-                mantienen su eficiencia a pesar de la inserción y eliminación de datos.
-                Un índice de árbol B toma la forma de un árbol equilibrado en el que cada ruta desde la raíz del
-                árbol hasta una hoja del árbol es de la misma longitud.
-
-                Cada nodo sin hoja en el árbol tiene entre [n / 2] y n hijos, donde n se fija para un árbol
-                en particular.
-
-                \begin{figure}[h]
-                    \centering
-                    \includegraphics[width=0.4\textwidth]{BTree}
-                \end{figure}
 
 
 
