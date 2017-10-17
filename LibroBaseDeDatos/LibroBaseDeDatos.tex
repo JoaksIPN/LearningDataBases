@@ -1307,7 +1307,7 @@
 
 
         % =====================================================
-        % == NORMALIZACION: DE ENTIDAD RELACION A RELACIONAL ==
+        % ====   MAPEO: DE ENTIDAD RELACION A RELACIONAL   ====
         % =====================================================
         \clearpage
         \section{Mapear Entidad Relación a Relacional}
@@ -1610,6 +1610,88 @@
                     \centering
                     \includegraphics[width=0.95\textwidth]{MapeoEntidadRelacionExtendido}
                 \end{figure}
+
+
+
+        % =====================================================
+        % ==========    NORMALIZACION    ======================
+        % =====================================================
+        \clearpage
+        \section{Normalización}
+
+
+            % =========================================
+            % ====   RELACIONES BIEN ESTRUCTURADAS  ===
+            % =========================================
+            \subsection{Relación bien Estructurada}
+
+                Es aquella que permite libremente escribir, actualizar o eliminar un registro
+                sin que ocurran anomalías.
+
+                En otras palabras una relación bien estructurada, es aquella relación que
+                contiene el mínimo de redundancia y permite a los usuarios insertar, modificar
+                y borrar registros en una tabla sin errores o inconsistencias.
+
+
+            % =========================================
+            % =======   DEFINICIÓN     ================
+            % =========================================
+            \subsection{Definición}
+
+                Decimos que Normalizar es el proceso por el cual convertimos todas nuestras relaciones
+                en relaciones bien estructuradas y pequeñas.
+                Es decir, a efectos practicos lo que hacemos es dividir las relaciones que tenemos.
+
+
+                Podemos decir alternante que Normalización es el \textbf{Proceso de eliminación de
+                redundancias en una tabla para que sea más fácil de modificación}
+
+
+
+            % =========================================
+            % =======        PASO 1    ================
+            % =========================================
+            \clearpage
+            \subsection{Paso 1: Eliminar Atributos Multivalor}
+
+                Se debe de cumplir la Regla de Integridad de Entidades
+
+            % =========================================
+            % =======        PASO 2    ================
+            % =========================================
+            \clearpage
+            \subsection{Paso 2: Eliminar Dependencias Funcionales Parciales}
+
+
+            % =========================================
+            % =======        PASO 3    ================
+            % =========================================
+            \clearpage
+            \subsection{Paso 3: Eliminar Dependencias Transitivas}
+
+
+
+            % =========================================
+            % =======        PASO 4    ================
+            % =========================================
+            \clearpage
+            \subsection{Paso 4: Eliminar Anomalías en Llaves Candidatas}
+
+
+
+            % =========================================
+            % =======        PASO 5    ================
+            % =========================================
+            \clearpage
+            \subsection{Paso 5: Eliminar Dependencias Multivaluadas}
+
+
+            % =========================================
+            % =======        PASO 6    ================
+            % =========================================
+            \clearpage
+            \subsection{Paso 6: Eliminar Dependencias de Junta (Join)}
+
 
 
                 
